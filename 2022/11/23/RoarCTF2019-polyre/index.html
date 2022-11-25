@@ -1,0 +1,66 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.6.2" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.6.2" type="image/png" sizes="32x32"><meta name="description" content="RoarCTF2019 polyre">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RoarCTF2019_polyre">
+<meta property="og:url" content="https://username.github.io/2022/11/23/RoarCTF2019-polyre/index.html">
+<meta property="og:site_name" content="鱼先生的格纳库">
+<meta property="og:description" content="RoarCTF2019 polyre">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202211232250892.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202211232252679.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202211232252604.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202211232253123.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202211232255211.png">
+<meta property="article:published_time" content="2022-11-23T14:46:16.000Z">
+<meta property="article:modified_time" content="2022-11-23T15:01:00.533Z">
+<meta property="article:author" content="没有眼的鱼">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202211232250892.png"><title>RoarCTF2019_polyre | 鱼先生的格纳库</title><link ref="canonical" href="https://username.github.io/2022/11/23/RoarCTF2019-polyre/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.6.2"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  assistSearch: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","wordWrap":false},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"复制","copySuccess":"复制成功","copyError":"复制失败"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.2"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">分类</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">鱼先生的格纳库</div><div class="header-banner-info__subtitle">没有眼的鱼</div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">RoarCTF2019_polyre</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-11-23</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2022-11-23</span></span></div></header><div class="post-body">
+        <h2 id="RoarCTF2019-polyre"   >
+          <a href="#RoarCTF2019-polyre" class="heading-link"><i class="fas fa-link"></i></a><a href="#RoarCTF2019-polyre" class="headerlink" title="[RoarCTF2019]polyre"></a>[RoarCTF2019]polyre</h2>
+      <p>ida64位</p>
+<p><img src="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202211232250892.png" alt="image-20221123225019843"></p>
+<p> ollvm 混淆控制流，完全平坦化了</p>
+<p>D-810反混淆</p>
+<p><img src="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202211232252679.png" alt="image-20221123225207637"></p>
+<p>分析程序</p>
+<p><img src="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202211232252604.png" alt="image-20221123225226574"></p>
+<p>单纯的在尾部加<code>\0</code></p>
+<p><img src="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202211232253123.png" alt="image-20221123225307086"></p>
+<p>CRC校验后比较</p>
+<p>要注意的有两个地方</p>
+<p>一个是如何判断正负</p>
+<p><img src="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202211232255211.png" alt="image-20221123225511189"></p>
+<p>首先左移的末尾是0</p>
+<p>又因为负数异或上的是0xB0004B7679FA26B3，也就是说，如果被操作数是负数，那么它的末尾一定为1，如果是偶数，则为零。</p>
+<p>另一个方面，逆向的时候要右移，那么开头一定为0。所以当被操作数是负数的时候，</p>
+<p>异或加右移后要补上缺失的负号，所以要<code>|0x8000000000000000</code></p>
+<p>脚本</p>
+<figure class="highlight python"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">flag = [</span><br><span class="line">    <span class="number">0xBC8FF26D43536296</span>, <span class="number">0x520100780530EE16</span>,</span><br><span class="line">    <span class="number">0x4DC0B5EA935F08EC</span>, <span class="number">0x342B90AFD853F450</span>,</span><br><span class="line">    <span class="number">0x8B250EBCAA2C3681</span>, <span class="number">0x55759F81A2C68AE4</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">6</span>):</span><br><span class="line">    enc = <span class="string">&quot;&quot;</span></span><br><span class="line">    x = flag[i]</span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">64</span>):</span><br><span class="line">        <span class="keyword">if</span> x &amp; <span class="number">1</span>:</span><br><span class="line">            x = (x ^ <span class="number">0xB0004B7679FA26B3</span>) &gt;&gt; <span class="number">1</span></span><br><span class="line">            x = x | <span class="number">0x8000000000000000</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            x = x &gt;&gt; <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    flag[i] = x</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">8</span>):</span><br><span class="line">        enc += <span class="built_in">chr</span>(x &amp; <span class="number">0xff</span>)</span><br><span class="line">        x = x &gt;&gt; <span class="number">8</span></span><br><span class="line">    <span class="built_in">print</span>(enc, end=<span class="string">&quot;&quot;</span>)</span><br></pre></td></tr></table></div></figure>
+
+<p>flag{6ff29390-6c20-4c56-ba70-a95758e3d1f8}</p>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2022/11/25/%E5%AE%89%E6%B4%B5%E6%9D%AF-2019-game/"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">安洵杯_2019_game</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/2022/11/20/%E9%95%BF%E5%AE%89%E6%9D%AF-snake-wp/"><span class="paginator-prev__text">长安杯_snake_wp</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#RoarCTF2019-polyre"><span class="toc-number">1.</span> <span class="toc-text">
+          [RoarCTF2019]polyre</span></a></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/131.jpg" alt="avatar"></div><p class="sidebar-ov-author__text">少壮不努力,老大亚托莉</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">31</div><div class="sidebar-ov-state-item__name">归档</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">4</div><div class="sidebar-ov-state-item__name">分类</div></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2022</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>没有眼的鱼</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.6.2"></script><script src="/js/stun-boot.js?v=2.6.2"></script><script src="/js/scroll.js?v=2.6.2"></script><script src="/js/header.js?v=2.6.2"></script><script src="/js/sidebar.js?v=2.6.2"></script></body></html>
