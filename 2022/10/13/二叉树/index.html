@@ -19,7 +19,7 @@ var CONFIG = {
   postWidget: {"endText":true},
   nightMode: {"enable":true},
   back2top: {"enable":true},
-  codeblock: {"style":"default","highlight":"light","wordWrap":false},
+  codeblock: {"style":"default","highlight":"ocean","wordWrap":true},
   reward: false,
   fancybox: false,
   zoomImage: {"gapAside":"20px"},
@@ -33,10 +33,10 @@ var CONFIG = {
 };
 
 window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.2"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">分类</span></a></div></div><div class="header-nav-search"><span class="header-nav-search__icon"><i class="fas fa-search"></i></span><span class="header-nav-search__text">搜索</span></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">鱼先生的格纳库</div><div class="header-banner-info__subtitle">没有眼的鱼</div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">数据结构--二叉树</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-10-13</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2022-11-02</span></span></div></header><div class="post-body">
-        <h1 id="二叉树">
+        <h1 id="二叉树"   >
           <a href="#二叉树" class="heading-link"><i class="fas fa-link"></i></a><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h1>
       
-        <h2 id="什么是树">
+        <h2 id="什么是树"   >
           <a href="#什么是树" class="heading-link"><i class="fas fa-link"></i></a><a href="#什么是树" class="headerlink" title="什么是树"></a>什么是树</h2>
       <ul>
 <li>树是有n(n≥0)个结点的有限集合。</li>
@@ -46,19 +46,19 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.2"></he
 <li>每个结点都有唯一的直接前驱，但可能有多个后继</li>
 </ul>
 
-        <h2 id="二叉树的种类">
+        <h2 id="二叉树的种类"   >
           <a href="#二叉树的种类" class="heading-link"><i class="fas fa-link"></i></a><a href="#二叉树的种类" class="headerlink" title="二叉树的种类"></a>二叉树的种类</h2>
       
-        <h3 id="满二叉树">
+        <h3 id="满二叉树"   >
           <a href="#满二叉树" class="heading-link"><i class="fas fa-link"></i></a><a href="#满二叉树" class="headerlink" title="满二叉树"></a>满二叉树</h3>
       <p>如果一棵二叉树只有度为0的结点和度为2的结点，并且度为0的结点在同一层上，则这棵二叉树为满二叉树。</p>
 <p>这棵二叉树为满二叉树，也可以说深度为k，有2^k-1个节点的二叉树。</p>
 
-        <h3 id="完全二叉树">
+        <h3 id="完全二叉树"   >
           <a href="#完全二叉树" class="heading-link"><i class="fas fa-link"></i></a><a href="#完全二叉树" class="headerlink" title="完全二叉树"></a>完全二叉树</h3>
       <p>完全二叉树的定义如下：在完全二叉树中，除了最底层节点可能没填满外，其余每层节点数都达到最大值，并且最下面一层的节点都集中在该层最左边的若干位置。若最底层为第 h 层，则该层包含 1~ 2^(h-1)  个节点。</p>
 
-        <h3 id="二叉搜索树">
+        <h3 id="二叉搜索树"   >
           <a href="#二叉搜索树" class="heading-link"><i class="fas fa-link"></i></a><a href="#二叉搜索树" class="headerlink" title="二叉搜索树"></a>二叉搜索树</h3>
       <p>二叉搜索树是一个有序树。</p>
 <ul>
@@ -67,11 +67,11 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.2"></he
 <li>它的左、右子树也分别为二叉排序树</li>
 </ul>
 
-        <h3 id="平衡二叉搜索树">
+        <h3 id="平衡二叉搜索树"   >
           <a href="#平衡二叉搜索树" class="heading-link"><i class="fas fa-link"></i></a><a href="#平衡二叉搜索树" class="headerlink" title="平衡二叉搜索树"></a>平衡二叉搜索树</h3>
       <p>平衡二叉搜索树：又被称为AVL（Adelson-Velsky and Landis）树，且具有以下性质：它是一棵空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树。</p>
 
-        <h2 id="二叉树的存储">
+        <h2 id="二叉树的存储"   >
           <a href="#二叉树的存储" class="heading-link"><i class="fas fa-link"></i></a><a href="#二叉树的存储" class="headerlink" title="二叉树的存储"></a>二叉树的存储</h2>
       <p>二叉树的存储分链式存储和线性存储</p>
 <p>线性存储利用数组</p>
@@ -85,19 +85,19 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.2"></he
 
 
 
-        <h3 id="二叉树的遍历">
+        <h3 id="二叉树的遍历"   >
           <a href="#二叉树的遍历" class="heading-link"><i class="fas fa-link"></i></a><a href="#二叉树的遍历" class="headerlink" title="二叉树的遍历"></a>二叉树的遍历</h3>
       
-        <h4 id="深度优先搜索">
+        <h4 id="深度优先搜索"   >
           <a href="#深度优先搜索" class="heading-link"><i class="fas fa-link"></i></a><a href="#深度优先搜索" class="headerlink" title="深度优先搜索"></a>深度优先搜索</h4>
       
-        <h5 id="递归">
+        <h5 id="递归"   >
           <a href="#递归" class="heading-link"><i class="fas fa-link"></i></a><a href="#递归" class="headerlink" title="递归"></a>递归</h5>
       <p>深度优先搜索一般使用递归实现</p>
 <figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">travel</span><span class="params">(Node * root, vector&lt;<span class="type">int</span>&gt; vec)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(root == <span class="literal">nullptr</span>) <span class="keyword">return</span> ;</span><br><span class="line">    <span class="comment">//前序遍历</span></span><br><span class="line">    vec.<span class="built_in">push</span>(root-&gt;delta);</span><br><span class="line">    <span class="built_in">travel</span>(root-&gt;l, vec);</span><br><span class="line">    <span class="comment">//中序遍历</span></span><br><span class="line">    <span class="comment">//vec.push(root-&gt;delta);</span></span><br><span class="line">    <span class="built_in">travel</span>(root-&gt;r, vec);</span><br><span class="line">    <span class="comment">//后序遍历</span></span><br><span class="line">    <span class="comment">//vec.push(root-&gt;delta);</span></span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
 
 
-        <h5 id="迭代实现">
+        <h5 id="迭代实现"   >
           <a href="#迭代实现" class="heading-link"><i class="fas fa-link"></i></a><a href="#迭代实现" class="headerlink" title="迭代实现"></a>迭代实现</h5>
       <p>迭代实现二叉树的话利用到栈这个数据，本质还是在模拟递归的执行</p>
 <p>前序&#x2F;后序遍历：</p>
@@ -111,17 +111,17 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.2"></he
 <p>迭代法的问题是，栈这种数据结构无法解决访问节点和遍历节点不一致的情况，于是可以通过加入一个空指针来进行标记。</p>
 <p>在每个处理的节点后面加入空结点，访问节点则之间入栈。使得处理节点要当空节点出栈后才会出栈。</p>
 
-        <h4 id="广度优先搜索">
+        <h4 id="广度优先搜索"   >
           <a href="#广度优先搜索" class="heading-link"><i class="fas fa-link"></i></a><a href="#广度优先搜索" class="headerlink" title="广度优先搜索"></a>广度优先搜索</h4>
       <p>广度优先搜索在二叉树中又叫做层序搜索，自顶向下，自左到右一层一层遍历</p>
 <p>利用队列先进先出的特点，可以轻松的实现层序搜索</p>
 
-        <h5 id="非递归">
+        <h5 id="非递归"   >
           <a href="#非递归" class="heading-link"><i class="fas fa-link"></i></a><a href="#非递归" class="headerlink" title="非递归"></a>非递归</h5>
       <figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">levelOrder</span>(TreeNode* root) &#123;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; rec;</span><br><span class="line">    queue&lt;TreeNode*&gt; que;</span><br><span class="line">    <span class="keyword">if</span>(root != <span class="literal">nullptr</span>) que.<span class="built_in">push</span>(root);</span><br><span class="line">    <span class="keyword">while</span>(!que.<span class="built_in">empty</span>())&#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; tmp;</span><br><span class="line">        <span class="type">int</span> size = que.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; size; i++)&#123;</span><br><span class="line">            TreeNode* x = que.<span class="built_in">front</span>();</span><br><span class="line">            que.<span class="built_in">pop</span>();</span><br><span class="line">            tmp.<span class="built_in">push_back</span>(x-&gt;val);</span><br><span class="line">            <span class="keyword">if</span>(x-&gt;left) que.<span class="built_in">push</span>(x-&gt;left);</span><br><span class="line">            <span class="keyword">if</span>(x-&gt;right) que.<span class="built_in">push</span>(x-&gt;right);</span><br><span class="line">        &#125;</span><br><span class="line">        rec.<span class="built_in">push_back</span>(tmp);</span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">return</span> rec;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
 
 
-        <h5 id="递归-1">
+        <h5 id="递归-1"   >
           <a href="#递归-1" class="heading-link"><i class="fas fa-link"></i></a><a href="#递归-1" class="headerlink" title="递归"></a>递归</h5>
       <figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></div></figure>
 
@@ -140,7 +140,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.2"></he
           迭代实现</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2"><span class="toc-number">1.3.1.2.</span> <span class="toc-text">
           广度优先搜索</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%9D%9E%E9%80%92%E5%BD%92"><span class="toc-number">1.3.1.2.1.</span> <span class="toc-text">
           非递归</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%80%92%E5%BD%92-1"><span class="toc-number">1.3.1.2.2.</span> <span class="toc-text">
-          递归</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/131.jpg" alt="avatar"></div><p class="sidebar-ov-author__text">少壮不努力,老大亚托莉</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="mailto:745921536@qq.com" target="_blank" rel="noopener" data-popover="social.QQmail" data-popover-pos="up"><span class="sidebar-ov-social-item__icon">Email</span></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">42</div><div class="sidebar-ov-state-item__name">归档</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">4</div><div class="sidebar-ov-state-item__name">分类</div></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2023</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>没有眼的鱼</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><div class="search-mask"></div><div class="search-popup"><span class="search-close"></span><div class="search-input"><input placeholder="搜索文章（支持多关键词，请用空格分隔）"></div><div class="search-results"></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script>function initSearch() {
+          递归</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/131.jpg" alt="avatar"></div><p class="sidebar-ov-author__text">少壮不努力,老大亚托莉</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="mailto:745921536@qq.com" target="_blank" rel="noopener" data-popover="social.745921536@qq.com" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fas fa-envelope"></i></span></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">42</div><div class="sidebar-ov-state-item__name">归档</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">4</div><div class="sidebar-ov-state-item__name">分类</div></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2023</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>没有眼的鱼</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><div class="search-mask"></div><div class="search-popup"><span class="search-close"></span><div class="search-input"><input placeholder="搜索文章（支持多关键词，请用空格分隔）"></div><div class="search-results"></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script>function initSearch() {
   var isXML = true;
   var search_path = 'search.xml';
 

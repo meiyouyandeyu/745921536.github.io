@@ -19,7 +19,7 @@ var CONFIG = {
   postWidget: {"endText":true},
   nightMode: {"enable":true},
   back2top: {"enable":true},
-  codeblock: {"style":"default","highlight":"light","wordWrap":false},
+  codeblock: {"style":"default","highlight":"ocean","wordWrap":true},
   reward: false,
   fancybox: false,
   zoomImage: {"gapAside":"20px"},
@@ -33,64 +33,64 @@ var CONFIG = {
 };
 
 window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.2"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">分类</span></a></div></div><div class="header-nav-search"><span class="header-nav-search__icon"><i class="fas fa-search"></i></span><span class="header-nav-search__text">搜索</span></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">鱼先生的格纳库</div><div class="header-banner-info__subtitle">没有眼的鱼</div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">运算符重载</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-06-24</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2022-06-25</span></span></div></header><div class="post-body">
-        <h1 id="运算符重载">
+        <h1 id="运算符重载"   >
           <a href="#运算符重载" class="heading-link"><i class="fas fa-link"></i></a><a href="#运算符重载" class="headerlink" title="运算符重载"></a>运算符重载</h1>
       <p>运算符重载用于拓展运算符的作用对象至任意对象</p>
 
-        <h2 id="一元运算符（！，）">
+        <h2 id="一元运算符（！，）"   >
           <a href="#一元运算符（！，）" class="heading-link"><i class="fas fa-link"></i></a><a href="#一元运算符（！，）" class="headerlink" title="一元运算符（！，）"></a>一元运算符（！，）</h2>
       
-        <h3 id="负号">
+        <h3 id="负号"   >
           <a href="#负号" class="heading-link"><i class="fas fa-link"></i></a><a href="#负号" class="headerlink" title="-[负号]"></a>-[负号]</h3>
       <figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">BIG <span class="keyword">operator</span> - ()  </span><br><span class="line">&#123;</span><br><span class="line">    BIG c;</span><br><span class="line">    c.x = -x;</span><br><span class="line">    <span class="keyword">return</span> c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
 
 
-        <h2 id="二元运算符（-，-，-x2F-）">
+        <h2 id="二元运算符（-，-，-x2F-）"   >
           <a href="#二元运算符（-，-，-x2F-）" class="heading-link"><i class="fas fa-link"></i></a><a href="#二元运算符（-，-，-x2F-）" class="headerlink" title="二元运算符（-，*，&#x2F;）"></a>二元运算符（-，*，&#x2F;）</h2>
       <p>注意顺序</p>
-<h3 id><a href="#" class="headerlink" title="+"></a>+</h3><figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">BIG <span class="keyword">operator</span> + (<span class="type">const</span> BIG &amp;b)</span><br><span class="line">&#123;</span><br><span class="line">	Box c;</span><br><span class="line">    c.x = x + b.x;</span><br><span class="line">    <span class="keyword">return</span> c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+<h3 id=""><a href="#" class="headerlink" title="+"></a>+</h3><figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">BIG <span class="keyword">operator</span> + (<span class="type">const</span> BIG &amp;b)</span><br><span class="line">&#123;</span><br><span class="line">	Box c;</span><br><span class="line">    c.x = x + b.x;</span><br><span class="line">    <span class="keyword">return</span> c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
 
 
-        <h2 id="赋值运算符">
+        <h2 id="赋值运算符"   >
           <a href="#赋值运算符" class="heading-link"><i class="fas fa-link"></i></a><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h2>
       
-        <h3 id="x3D">
+        <h3 id="x3D"   >
           <a href="#x3D" class="heading-link"><i class="fas fa-link"></i></a><a href="#x3D" class="headerlink" title="&#x3D;"></a>&#x3D;</h3>
       <figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="keyword">operator</span> = (<span class="type">const</span> BIG &amp;b)</span><br><span class="line">&#123;</span><br><span class="line">    x = b.x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
 
 
-        <h2 id="输入-x2F-输出运算符">
+        <h2 id="输入-x2F-输出运算符"   >
           <a href="#输入-x2F-输出运算符" class="heading-link"><i class="fas fa-link"></i></a><a href="#输入-x2F-输出运算符" class="headerlink" title="输入&#x2F;输出运算符"></a>输入&#x2F;输出运算符</h2>
       
-        <h3 id="lt-lt">
+        <h3 id="lt-lt"   >
           <a href="#lt-lt" class="heading-link"><i class="fas fa-link"></i></a><a href="#lt-lt" class="headerlink" title="&lt;&lt;"></a>&lt;&lt;</h3>
       <figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">friend</span> ostream &amp;<span class="keyword">operator</span> &lt;&lt; ( ostream &amp;out, <span class="type">const</span> BIG &amp;p )                                 </span><br><span class="line">&#123; </span><br><span class="line">    out &lt;&lt; p.x:</span><br><span class="line">    <span class="keyword">return</span> out;            </span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
 
 
-        <h3 id="gt-gt">
+        <h3 id="gt-gt"   >
           <a href="#gt-gt" class="heading-link"><i class="fas fa-link"></i></a><a href="#gt-gt" class="headerlink" title="&gt;&gt;"></a>&gt;&gt;</h3>
       <figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">friend</span> istream &amp;<span class="keyword">operator</span> &gt;&gt; ( istream &amp;in, BIG &amp;p )</span><br><span class="line">&#123; </span><br><span class="line">    in &gt;&gt; p.x;</span><br><span class="line">    <span class="keyword">return</span> in;            </span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
 
 
 
 
-        <h2 id="递增递减运算符">
+        <h2 id="递增递减运算符"   >
           <a href="#递增递减运算符" class="heading-link"><i class="fas fa-link"></i></a><a href="#递增递减运算符" class="headerlink" title="递增递减运算符"></a>递增递减运算符</h2>
       
-        <h3 id="A">
+        <h3 id="A"   >
           <a href="#A" class="heading-link"><i class="fas fa-link"></i></a><a href="#A" class="headerlink" title="++A"></a>++A</h3>
       <figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">BIG <span class="keyword">operator</span> ++ ()  </span><br><span class="line">&#123;</span><br><span class="line">    BIG c;</span><br><span class="line">    x++;			<span class="comment">//先加加</span></span><br><span class="line">    c.x = x;</span><br><span class="line">    <span class="keyword">return</span> c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
 
 
-        <h3 id="A-1">
+        <h3 id="A-1"   >
           <a href="#A-1" class="heading-link"><i class="fas fa-link"></i></a><a href="#A-1" class="headerlink" title="A++"></a>A++</h3>
       <figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">BIG <span class="keyword">operator</span> ++ ( <span class="type">int</span> )         </span><br><span class="line">&#123;</span><br><span class="line">	BIG c;			<span class="comment">//保留原来的值</span></span><br><span class="line">    c.x = x;</span><br><span class="line">    x++;			<span class="comment">//加加</span></span><br><span class="line">	<span class="keyword">return</span> c;		<span class="comment">//返回原来值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
 
 
-        <h2 id="类型转换运算符">
+        <h2 id="类型转换运算符"   >
           <a href="#类型转换运算符" class="heading-link"><i class="fas fa-link"></i></a><a href="#类型转换运算符" class="headerlink" title="类型转换运算符"></a>类型转换运算符</h2>
       
-        <h3 id="类型">
+        <h3 id="类型"   >
           <a href="#类型" class="heading-link"><i class="fas fa-link"></i></a><a href="#类型" class="headerlink" title="(类型)"></a>(类型)</h3>
       <figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">operator</span> <span class="title">char</span><span class="params">( )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">char</span> c;</span><br><span class="line">    c = a + <span class="string">&#x27;A&#x27;</span></span><br><span class="line">    <span class="keyword">return</span> c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
 
@@ -108,7 +108,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.2"></he
           ++A</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#A-1"><span class="toc-number">1.5.2.</span> <span class="toc-text">
           A++</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.6.</span> <span class="toc-text">
           类型转换运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.6.1.</span> <span class="toc-text">
-          (类型)</span></a></li></ol></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/131.jpg" alt="avatar"></div><p class="sidebar-ov-author__text">少壮不努力,老大亚托莉</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="mailto:745921536@qq.com" target="_blank" rel="noopener" data-popover="social.QQmail" data-popover-pos="up"><span class="sidebar-ov-social-item__icon">Email</span></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">42</div><div class="sidebar-ov-state-item__name">归档</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">4</div><div class="sidebar-ov-state-item__name">分类</div></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2023</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>没有眼的鱼</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><div class="search-mask"></div><div class="search-popup"><span class="search-close"></span><div class="search-input"><input placeholder="搜索文章（支持多关键词，请用空格分隔）"></div><div class="search-results"></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script>function initSearch() {
+          (类型)</span></a></li></ol></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/131.jpg" alt="avatar"></div><p class="sidebar-ov-author__text">少壮不努力,老大亚托莉</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="mailto:745921536@qq.com" target="_blank" rel="noopener" data-popover="social.745921536@qq.com" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fas fa-envelope"></i></span></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">42</div><div class="sidebar-ov-state-item__name">归档</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">4</div><div class="sidebar-ov-state-item__name">分类</div></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2023</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>没有眼的鱼</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><div class="search-mask"></div><div class="search-popup"><span class="search-close"></span><div class="search-input"><input placeholder="搜索文章（支持多关键词，请用空格分隔）"></div><div class="search-results"></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script>function initSearch() {
   var isXML = true;
   var search_path = 'search.xml';
 

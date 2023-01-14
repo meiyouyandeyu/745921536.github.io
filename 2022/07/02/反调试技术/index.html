@@ -30,7 +30,7 @@ var CONFIG = {
   postWidget: {"endText":true},
   nightMode: {"enable":true},
   back2top: {"enable":true},
-  codeblock: {"style":"default","highlight":"light","wordWrap":false},
+  codeblock: {"style":"default","highlight":"ocean","wordWrap":true},
   reward: false,
   fancybox: false,
   zoomImage: {"gapAside":"20px"},
@@ -44,15 +44,15 @@ var CONFIG = {
 };
 
 window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.2"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">分类</span></a></div></div><div class="header-nav-search"><span class="header-nav-search__icon"><i class="fas fa-search"></i></span><span class="header-nav-search__text">搜索</span></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">鱼先生的格纳库</div><div class="header-banner-info__subtitle">没有眼的鱼</div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">反调试技术</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-07-02</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2023-01-13</span></span></div></header><div class="post-body">
-        <h1 id="反调试技术">
+        <h1 id="反调试技术"   >
           <a href="#反调试技术" class="heading-link"><i class="fas fa-link"></i></a><a href="#反调试技术" class="headerlink" title="反调试技术"></a>反调试技术</h1>
       <p>反调试技术用于防止程序被调试</p>
 <p>一般分为利用函数进行检测或者直接将调试权限清0</p>
 
-        <h2 id="IsDebuggerPresent">
+        <h2 id="IsDebuggerPresent"   >
           <a href="#IsDebuggerPresent" class="heading-link"><i class="fas fa-link"></i></a><a href="#IsDebuggerPresent" class="headerlink" title="IsDebuggerPresent"></a>IsDebuggerPresent</h2>
       
-        <h3 id="原理">
+        <h3 id="原理"   >
           <a href="#原理" class="heading-link"><i class="fas fa-link"></i></a><a href="#原理" class="headerlink" title="原理"></a>原理</h3>
       <p>IsDebuggerPresent是Windows API提供的函数，用于确定调用进程是否由用户模式调试器进行调试。</p>
 <p>当调试器存在时, IsDebuggerPresent( )函数返回的是一个<code>非0值</code>.</p>
@@ -65,7 +65,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.2"></he
 <figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">call IsDebuggerPresent</span><br><span class="line">test al al</span><br><span class="line">jz </span><br><span class="line">call exit</span><br></pre></td></tr></table></div></figure>
 
 
-        <h3 id="绕过">
+        <h3 id="绕过"   >
           <a href="#绕过" class="heading-link"><i class="fas fa-link"></i></a><a href="#绕过" class="headerlink" title="绕过"></a>绕过</h3>
       <p><img src="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202301132159362.png" alt="image-20220710150918570"></p>
 <p>如图，为一个<code>IsDebuggerPresent()</code>函数，如果正在被调试就会返回非零值</p>
@@ -81,35 +81,35 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.2"></he
 <p>利用OD修改PEB.BeingDebugged 改为0.</p>
 <p>PEB的结构指针存储在TEB中，fs:[0x30]是PEB fs:[0x18]是TEB。</p>
 
-        <h2 id="CheckRemoteDebuggerPresent">
+        <h2 id="CheckRemoteDebuggerPresent"   >
           <a href="#CheckRemoteDebuggerPresent" class="heading-link"><i class="fas fa-link"></i></a><a href="#CheckRemoteDebuggerPresent" class="headerlink" title="CheckRemoteDebuggerPresent"></a>CheckRemoteDebuggerPresent</h2>
       
-        <h3 id="原理-1">
+        <h3 id="原理-1"   >
           <a href="#原理-1" class="heading-link"><i class="fas fa-link"></i></a><a href="#原理-1" class="headerlink" title="原理"></a>原理</h3>
       <p>CheckRemoteDebuggerPresent是Windows API提供的函数，用于检测是否正在调试指定的进程</p>
 <p>于IsDebuggerPresent不同，它可以在多线程的情况下进行使用</p>
 
-        <h1 id="NtQueryInformationProcess">
+        <h1 id="NtQueryInformationProcess"   >
           <a href="#NtQueryInformationProcess" class="heading-link"><i class="fas fa-link"></i></a><a href="#NtQueryInformationProcess" class="headerlink" title="NtQueryInformationProcess"></a>NtQueryInformationProcess</h1>
       
-        <h3 id="原理-2">
+        <h3 id="原理-2"   >
           <a href="#原理-2" class="heading-link"><i class="fas fa-link"></i></a><a href="#原理-2" class="headerlink" title="原理"></a>原理</h3>
       <p>NtQueryInformationProcess( )是一个接受一个信息类的参数用于查询的函数。</p>
 <p>kernel32的<code>CheckRemoteDebuggerPresent()</code>函数内部通过调用<code>NtQueryInformationProcess()</code>来</p>
 <p>检测调试, 而<code>NtQueryInformationProcess</code>内部则是查询<code>EPROCESS</code>结构体的<code>DebugPort</code>字段, 当进</p>
 <p>程正在被调试时, 返回值为0xffffffff.</p>
 
-        <h2 id="TLS反调试">
+        <h2 id="TLS反调试"   >
           <a href="#TLS反调试" class="heading-link"><i class="fas fa-link"></i></a><a href="#TLS反调试" class="headerlink" title="TLS反调试"></a>TLS反调试</h2>
       <p>TLS原本是用于多线程情况下的数据同步，分动态绑定和静态绑定两种用法</p>
 <p>而其中的静态绑定可用于反调试</p>
 
-        <h3 id="TLS变量">
+        <h3 id="TLS变量"   >
           <a href="#TLS变量" class="heading-link"><i class="fas fa-link"></i></a><a href="#TLS变量" class="headerlink" title="TLS变量"></a>TLS变量</h3>
       <p>同一个线程里面调用的各个函数都可以访问、但其他线程无法访问的变量（被称为static memory local to a thread 线程局部静态变量）</p>
 <p>因此，如果将</p>
 
-        <h3 id="TLS回调函数">
+        <h3 id="TLS回调函数"   >
           <a href="#TLS回调函数" class="heading-link"><i class="fas fa-link"></i></a><a href="#TLS回调函数" class="headerlink" title="TLS回调函数"></a>TLS回调函数</h3>
       <p>静态绑定反调试主要体现在回调函数中</p>
 <p>程序可以提供<strong>一个或多个</strong>TLS回调函数，以支持TLS数据对象的附加初始化和终止</p>
@@ -119,16 +119,16 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.2"></he
 <figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> NTAPI <span class="title">tls_callback</span><span class="params">(PVOID Dllhandle, DWORD Reason, PVOID Reserved)</span> </span>&#123;</span><br><span class="line">    BOOL ret;</span><br><span class="line">    <span class="built_in">CheckRemoteDebuggerPresent</span>(<span class="built_in">GetCurrentProcess</span>(), &amp;ret);</span><br><span class="line">    <span class="keyword">if</span> (ret) &#123;</span><br><span class="line">        <span class="built_in">ExitProcess</span>(<span class="number">0</span>);</span><br><span class="line">    &#125;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
 
 
-        <h3 id="绕过-1">
+        <h3 id="绕过-1"   >
           <a href="#绕过-1" class="heading-link"><i class="fas fa-link"></i></a><a href="#绕过-1" class="headerlink" title="绕过"></a>绕过</h3>
       <p>修改ret的值</p>
 <p>如果回调函数里面的不是强制退出的话就直接静态分析</p>
 
-        <h2 id="花指令">
+        <h2 id="花指令"   >
           <a href="#花指令" class="heading-link"><i class="fas fa-link"></i></a><a href="#花指令" class="headerlink" title="花指令"></a>花指令</h2>
       <p>所谓花指令，是指在程序中完全冗余，不影响程序功能却会对逆向工程产生干扰的指令。</p>
 
-        <h3 id="不可执行花指令">
+        <h3 id="不可执行花指令"   >
           <a href="#不可执行花指令" class="heading-link"><i class="fas fa-link"></i></a><a href="#不可执行花指令" class="headerlink" title="不可执行花指令"></a>不可执行花指令</h3>
       <p>例如</p>
 <p><img src="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202301132200631.png" alt="image-20220704201213135"></p>
@@ -142,12 +142,12 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.2"></he
 <p><img src="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202301132200863.png" alt="image-20220704201701582"></p>
 <p>当然也可以用OD进行修改</p>
 
-        <h3 id="可执行花指令">
+        <h3 id="可执行花指令"   >
           <a href="#可执行花指令" class="heading-link"><i class="fas fa-link"></i></a><a href="#可执行花指令" class="headerlink" title="可执行花指令"></a>可执行花指令</h3>
       
-        <h2 id="SMC-self-Modifying-Code">
+        <h2 id="SMC-self-Modifying-Code"   >
           <a href="#SMC-self-Modifying-Code" class="heading-link"><i class="fas fa-link"></i></a><a href="#SMC-self-Modifying-Code" class="headerlink" title="SMC(self-Modifying Code)"></a>SMC(self-Modifying Code)</h2>
-      <p>SMC(self-Modifying Code),就是在真正执行某一段代码时，程序会对自身的该段代码进行自修改，只有在修改后的代码才是可汇编，可执行的。在程序未对该段代码进行修改之前，在静态分析状态下，均是不可读的<span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E5%AD%97%E8%8A%82%E7%A0%81&spm=1001.2101.3001.7020">字节码</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>，IDA之类的反汇编器无法识别程序的正常逻辑。是一种反调试代码技术。</p>
+      <p>SMC(self-Modifying Code),就是在真正执行某一段代码时，程序会对自身的该段代码进行自修改，只有在修改后的代码才是可汇编，可执行的。在程序未对该段代码进行修改之前，在静态分析状态下，均是不可读的<span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E5%AD%97%E8%8A%82%E7%A0%81&spm=1001.2101.3001.7020" >字节码</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>，IDA之类的反汇编器无法识别程序的正常逻辑。是一种反调试代码技术。</p>
 <p>示例</p>
 <p><img src="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202301132200060.png" alt="image-20220902151957943"></p>
 <p><img src="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202301132200236.png" alt="image-20220902151933185"></p>
@@ -172,7 +172,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.2"></he
           花指令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E5%8F%AF%E6%89%A7%E8%A1%8C%E8%8A%B1%E6%8C%87%E4%BB%A4"><span class="toc-number">2.2.1.</span> <span class="toc-text">
           不可执行花指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E6%89%A7%E8%A1%8C%E8%8A%B1%E6%8C%87%E4%BB%A4"><span class="toc-number">2.2.2.</span> <span class="toc-text">
           可执行花指令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SMC-self-Modifying-Code"><span class="toc-number">2.3.</span> <span class="toc-text">
-          SMC(self-Modifying Code)</span></a></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/131.jpg" alt="avatar"></div><p class="sidebar-ov-author__text">少壮不努力,老大亚托莉</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="mailto:745921536@qq.com" target="_blank" rel="noopener" data-popover="social.QQmail" data-popover-pos="up"><span class="sidebar-ov-social-item__icon">Email</span></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">42</div><div class="sidebar-ov-state-item__name">归档</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">4</div><div class="sidebar-ov-state-item__name">分类</div></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2023</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>没有眼的鱼</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><div class="search-mask"></div><div class="search-popup"><span class="search-close"></span><div class="search-input"><input placeholder="搜索文章（支持多关键词，请用空格分隔）"></div><div class="search-results"></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script>function initSearch() {
+          SMC(self-Modifying Code)</span></a></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/131.jpg" alt="avatar"></div><p class="sidebar-ov-author__text">少壮不努力,老大亚托莉</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="mailto:745921536@qq.com" target="_blank" rel="noopener" data-popover="social.745921536@qq.com" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fas fa-envelope"></i></span></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">42</div><div class="sidebar-ov-state-item__name">归档</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">4</div><div class="sidebar-ov-state-item__name">分类</div></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2023</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>没有眼的鱼</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><div class="search-mask"></div><div class="search-popup"><span class="search-close"></span><div class="search-input"><input placeholder="搜索文章（支持多关键词，请用空格分隔）"></div><div class="search-results"></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script>function initSearch() {
   var isXML = true;
   var search_path = 'search.xml';
 
