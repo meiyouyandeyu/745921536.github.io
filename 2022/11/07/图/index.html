@@ -44,20 +44,20 @@ var CONFIG = {
   sourcePath: {"js":"js","css":"css","images":"images"},
 };
 
-window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.2"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">分类</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">鱼先生的格纳库</div><div class="header-banner-info__subtitle">没有眼的鱼</div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">数据结构——图</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-11-07</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2023-01-13</span></span></div></header><div class="post-body">
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.2"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">分类</span></a></div></div><div class="header-nav-search"><span class="header-nav-search__icon"><i class="fas fa-search"></i></span><span class="header-nav-search__text">搜索</span></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">鱼先生的格纳库</div><div class="header-banner-info__subtitle">没有眼的鱼</div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">数据结构——图</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-11-07</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2023-01-13</span></span></div></header><div class="post-body">
         <h1 id="数据结构——图">
           <a href="#数据结构——图" class="heading-link"><i class="fas fa-link"></i></a><a href="#数据结构——图" class="headerlink" title="数据结构——图"></a>数据结构——图</h1>
       
         <h2 id="图的定义">
           <a href="#图的定义" class="heading-link"><i class="fas fa-link"></i></a><a href="#图的定义" class="headerlink" title="图的定义"></a>图的定义</h2>
-      <p><strong>图 (graph)</strong> 是一个二元组 $G = (V(G), E(G))$ 。</p>
+      <p><strong>图 (graph)</strong> 是一个二元组 $G &#x3D; (V(G), E(G))$ 。</p>
 <p>其中 $V(G)$ 是非空集，称为 **点集 (vertex set)**，对于 $V$ 中的每个元素，我们称其为 <strong>顶点 (vertex)</strong> 或 **节点 (node)**，简称 <strong>点</strong></p>
 <p>$E(G)$ 为 $V(G)$ 各结点之间边的集合，称为 <strong>边集 (edge set)</strong></p>
 
         <h3 id="无向图-Undigraph">
           <a href="#无向图-Undigraph" class="heading-link"><i class="fas fa-link"></i></a><a href="#无向图-Undigraph" class="headerlink" title="无向图(Undigraph)"></a>无向图(Undigraph)</h3>
       <p>用 $(x, y)$ 表示两个顶点之间的一条<strong>边(edge)</strong></p>
-<p><strong>G={V,E}，V={0,1,2,3,4,5}，E={(0,1), (0,4), (0,5), (1,2), (1,3), (1,5), (2,3), (3,4), (3,5), (4,5)}</strong></p>
+<p><strong>G&#x3D;{V,E}，V&#x3D;{0,1,2,3,4,5}，E&#x3D;{(0,1), (0,4), (0,5), (1,2), (1,3), (1,5), (2,3), (3,4), (3,5), (4,5)}</strong></p>
 <p><img src="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202301132208950.png" alt="image-20221107135910798"></p>
 <ul>
 <li><p>邻接点：如果 $(x, y) \in E$ ,称x,y互为邻接点，即x,y相邻接</p>
@@ -72,7 +72,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.2"></he
 
         <h4 id="无向图-完全图">
           <a href="#无向图-完全图" class="heading-link"><i class="fas fa-link"></i></a><a href="#无向图-完全图" class="headerlink" title="无向图 (完全图)"></a>无向图 (完全图)</h4>
-      <p>如果无向图有 $n(n-1)/2$ 条边，则称为无向完全图</p>
+      <p>如果无向图有 $n(n-1)&#x2F;2$ 条边，则称为无向完全图</p>
 <img src="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202301132208951.png" alt="image-20230112175056834" style="zoom:33%;">
 
 
@@ -81,7 +81,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.2"></he
         <h3 id="有向图-Digraph">
           <a href="#有向图-Digraph" class="heading-link"><i class="fas fa-link"></i></a><a href="#有向图-Digraph" class="headerlink" title="有向图(Digraph)"></a>有向图(Digraph)</h3>
       <p>用 $&lt;x,y&gt;$ 表示从x到y的一条弧(Arc)，且称x为弧尾，y为弧头</p>
-<p>**G={V,E}，V={0,1,2,3,4}，E={&lt;0,1&gt;，&lt;0,3&gt;，&lt;0,4&gt;，&lt;1,2&gt;，&lt;2,4&gt;，&lt;3,2&gt; } **</p>
+<p>**G&#x3D;{V,E}，V&#x3D;{0,1,2,3,4}，E&#x3D;{&lt;0,1&gt;，&lt;0,3&gt;，&lt;0,4&gt;，&lt;1,2&gt;，&lt;2,4&gt;，&lt;3,2&gt; } **</p>
 <img src="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202301132208952.png" alt="image-20230112175106670" style="zoom:33%;">
 
 <ul>
@@ -89,7 +89,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.2"></he
 <li>相关联：弧 $&lt;x,y&gt;$ 与x,y相关联</li>
 <li>入度：以顶点为头的弧的数目，记为ID(x)</li>
 <li>出度：以顶点为尾的弧的数目，记为OD(x)</li>
-<li>度：TD(x)=ID(x)+OD(x)</li>
+<li>度：TD(x)&#x3D;ID(x)+OD(x)</li>
 </ul>
 
         <h4 id="有向完全图">
@@ -120,7 +120,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.2"></he
         <h3 id="回路">
           <a href="#回路" class="heading-link"><i class="fas fa-link"></i></a><a href="#回路" class="headerlink" title="回路"></a>回路</h3>
       <ul>
-<li>回路或环：路径的开始顶点与最后一个顶点相同，即路径中 $(x, v_{i1}, v_{i2},…, v_{im}, y)$ ，x=y</li>
+<li>回路或环：路径的开始顶点与最后一个顶点相同，即路径中 $(x, v_{i1}, v_{i2},…, v_{im}, y)$ ，x&#x3D;y</li>
 <li>简单路径：路径的顶点序列中，顶点不重复出现</li>
 </ul>
 
@@ -153,19 +153,25 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.2"></he
       
         <h3 id="邻接矩阵">
           <a href="#邻接矩阵" class="heading-link"><i class="fas fa-link"></i></a><a href="#邻接矩阵" class="headerlink" title="邻接矩阵"></a>邻接矩阵</h3>
-      <p>利用一个二维数组 bool mp [N] [N]，mp [ i ] [ j ] = 1 代表E中有&lt; i , j &gt;这条边，而=0时则说明无这条边</p>
+      <p>利用一个二维数组 bool mp [N] [N]，mp [ i ] [ j ] &#x3D; 1 代表E中有&lt; i , j &gt;这条边，而&#x3D;0时则说明无这条边</p>
 <p><img src="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202301132208959.png" alt="image-20221107143253277"></p>
 <ul>
-<li>若图带权则把1换成对应的权值</li>
-<li>无向图的邻接矩阵是对称的</li>
-<li>A [i] [j] 可确定顶点i和j之间是否有边相连</li>
-<li>其第i行1的个数或第i列1的个数，等于顶点i的度TD(i)</li>
-<li>特别：完全图的邻接矩阵中，对角元素为0，其余全1。</li>
-</ul>
-<ul>
-<li>有向图的邻接矩阵可能是不对称的</li>
-<li>其第i行1的个数等于顶点i的出度OD(i)，第j列1的个数等于顶点j的入度ID(j)</li>
-<li>顶点的度=第i行元素之和+第i列元素之和</li>
+<li><p>若图带权则把1换成对应的权值</p>
+</li>
+<li><p>无向图的邻接矩阵是对称的</p>
+</li>
+<li><p>A [i] [j] 可确定顶点i和j之间是否有边相连</p>
+</li>
+<li><p>其第i行1的个数或第i列1的个数，等于顶点i的度TD(i)</p>
+</li>
+<li><p>特别：完全图的邻接矩阵中，对角元素为0，其余全1。</p>
+</li>
+<li><p>有向图的邻接矩阵可能是不对称的</p>
+</li>
+<li><p>其第i行1的个数等于顶点i的出度OD(i)，第j列1的个数等于顶点j的入度ID(j)</p>
+</li>
+<li><p>顶点的度&#x3D;第i行元素之和+第i列元素之和</p>
+</li>
 </ul>
 <p>代码样例：</p>
 <figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> MAXN = <span class="number">10001</span>;</span><br><span class="line"><span class="type">int</span> adj[MAXN][MAXN];</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; ++i)&#123;</span><br><span class="line">    <span class="type">int</span> u, v;</span><br><span class="line">    cin &gt;&gt; u &gt;&gt; v;</span><br><span class="line">    adj[u][v] = <span class="number">1</span>;</span><br><span class="line">    <span class="comment">//若无向</span></span><br><span class="line">    <span class="comment">//adj[v][u] = 1;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
@@ -299,4 +305,277 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.2"></he
           无向图的连通</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91"><span class="toc-number">1.4.0.2.</span> <span class="toc-text">
           最小生成树</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Prim%E7%AE%97%E6%B3%95"><span class="toc-number">1.4.0.2.1.</span> <span class="toc-text">
           Prim算法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Kruskal%E7%AE%97%E6%B3%95"><span class="toc-number">1.4.0.2.2.</span> <span class="toc-text">
-          Kruskal算法</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/131.jpg" alt="avatar"></div><p class="sidebar-ov-author__text">少壮不努力,老大亚托莉</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">42</div><div class="sidebar-ov-state-item__name">归档</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">4</div><div class="sidebar-ov-state-item__name">分类</div></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2023</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>没有眼的鱼</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.6.2"></script><script src="/js/stun-boot.js?v=2.6.2"></script><script src="/js/scroll.js?v=2.6.2"></script><script src="/js/header.js?v=2.6.2"></script><script src="/js/sidebar.js?v=2.6.2"></script></body></html>
+          Kruskal算法</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/131.jpg" alt="avatar"></div><p class="sidebar-ov-author__text">少壮不努力,老大亚托莉</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="mailto:745921536@qq.com" target="_blank" rel="noopener" data-popover="social.QQmail" data-popover-pos="up"><span class="sidebar-ov-social-item__icon">Email</span></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">42</div><div class="sidebar-ov-state-item__name">归档</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">4</div><div class="sidebar-ov-state-item__name">分类</div></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2023</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>没有眼的鱼</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><div class="search-mask"></div><div class="search-popup"><span class="search-close"></span><div class="search-input"><input placeholder="搜索文章（支持多关键词，请用空格分隔）"></div><div class="search-results"></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script>function initSearch() {
+  var isXML = true;
+  var search_path = 'search.xml';
+
+  if (!search_path) {
+    search_path = 'search.xml';
+  } else if (/json$/i.test(search_path)) {
+    isXML = false;
+  }
+
+  var path = '/' + search_path;
+  $.ajax({
+    url: path,
+    dataType: isXML ? 'xml' : 'json',
+    async: true,
+    success: function (res) {
+      var datas = isXML ? $('entry', res).map(function () {
+        // 将 XML 转为 JSON
+        return {
+          title: $('title', this).text(),
+          content: $('content', this).text(),
+          url: $('url', this).text()
+        };
+      }).get() : res;
+      var $input = $('.search-input input');
+      var $result = $('.search-results');
+      // 搜索对象（标题、内容）的权重，影响显示顺序
+      var WEIGHT = { title: 100, content: 1 };
+      var searchPost = function () {
+        var searchText = $input.val().toLowerCase().trim();
+        // 根据空白字符分隔关键字
+        var keywords = searchText.split(/[\s]+/);
+        // 搜索结果
+        var matchPosts = [];
+
+        // 有多个关键字时，将原文字整个保存下来
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        // 防止未输入字符时搜索
+        if (searchText.length > 0) {
+          datas.forEach(function (data) {
+            var isMatch  = false;
+            // 没有标题的文章使用预设的 i18n 变量代替
+            var title = (data.title && data.title.trim()) || '[ 文章无标题 ]';
+            var titleLower = title && title.toLowerCase();
+            // 删除 HTML 标签 和 所有空白字符
+            var content = data.content && data.content.replace(/<[^>]+>/g, '');
+            var contentLower = content && content.toLowerCase();
+            // 删除重复的 /
+            var postURL = data.url && decodeURI(data.url).replace(/\/{2,}/g, '/');
+            // 标题中匹配到的关键词
+            var titleHitSlice = [];
+            // 内容中匹配到的关键词
+            var contentHitSlice = [];
+
+            keywords.forEach(function (keyword) {
+              /**
+              * 获取匹配的关键词的索引
+              * @param {String} keyword 要匹配的关键字
+              * @param {String} text 原文字
+              * @param {Boolean} caseSensitive 是否区分大小写
+              * @param {Number} weight 匹配对象的权重。权重大的优先显示
+              * @return {Array}
+              */
+              function getIndexByword (word, text, caseSensitive, weight) {
+                if (!word || !text) {
+                  return [];
+                };
+
+                var startIndex = 0; // 每次匹配的开始索引
+                var index = -1;     // 匹配到的索引值
+                var result = [];    // 匹配结果
+
+                if (!caseSensitive) {
+                  word = word.toLowerCase();
+                  text = text.toLowerCase();
+                }
+
+                while((index = text.indexOf(word, startIndex)) !== -1) {
+                  var hasMatch = false;
+                  // 索引位置相同的关键词，保留长度较长的
+                  titleHitSlice.forEach(function (hit) {
+                    if (hit.index === index && hit.word.length < word.length) {
+                      hit.word = word;
+                      hasMatch = true;
+                    }
+                  });
+                  startIndex = index + word.length;
+                  !hasMatch && result.push({ index: index, word: word, weight: weight });
+                }
+                return result;
+              }
+              titleHitSlice = titleHitSlice.concat(getIndexByword(keyword, titleLower, false, WEIGHT.title));
+              contentHitSlice = contentHitSlice.concat(getIndexByword(keyword, contentLower, false, WEIGHT.content));
+            });
+
+            var hitTitle = titleHitSlice.length;
+            var hitContent = contentHitSlice.length;
+
+            if (hitTitle > 0 || hitContent > 0) {
+              isMatch = true;
+            }
+            if (isMatch) {
+              ;[titleHitSlice, contentHitSlice].forEach(function (hit) {
+                // 按照匹配文字的索引的递增顺序排序
+                hit.sort(function (left, right) {
+                  return left.index - right.index;
+                });
+              });
+              /**
+              * 给文本中匹配到的关键词添加标记，从而进行高亮显示
+              * @param {String} text 原文本
+              * @param {Array} hitSlice 匹配项的索引信息
+              * @param {Number} start 开始索引
+              * @param {Number} end 结束索引
+              * @return {String}
+              */
+              function highlightKeyword (text, hitSlice, start, end) {
+                if (!text || !hitSlice || !hitSlice.length) {
+                  return;
+                }
+
+                var result = '';
+                var startIndex = start;
+                var endIndex = end;
+                hitSlice.forEach(function (hit) {
+                  if (hit.index < startIndex) {
+                    return;
+                  }
+
+                  var hitWordEnd = hit.index + hit.word.length;
+                  result += text.slice(startIndex, hit.index);
+                  result += '<b>' + text.slice(hit.index, hitWordEnd) + '</b>';
+                  startIndex = hitWordEnd;
+                });
+                result += text.slice(startIndex, endIndex);
+                return result;
+              }
+
+              var postData = {};
+              // 文章总的搜索权重
+              var postWeight = titleHitSlice.length * WEIGHT.title + contentHitSlice.length * WEIGHT.content;
+              // 标记匹配关键词后的标题
+              var postTitle = highlightKeyword(title, titleHitSlice, 0, title.length) || title;
+              // 标记匹配关键词后的内容
+              var postContent;
+              // 显示内容的长度
+              var SHOW_WORD_LENGTH = 200;
+              // 命中关键词前的字符显示长度
+              var SHOW_WORD_FRONT_LENGTH = 20;
+              var SHOW_WORD_END_LENGTH = SHOW_WORD_LENGTH - SHOW_WORD_FRONT_LENGTH;
+
+              // 截取匹配的第一个字符，前后共 200 个字符来显示
+              if (contentHitSlice.length > 0) {
+                var firstIndex = contentHitSlice[0].index;
+                var start = firstIndex > SHOW_WORD_FRONT_LENGTH ? firstIndex - SHOW_WORD_FRONT_LENGTH : 0;
+                var end = firstIndex + SHOW_WORD_END_LENGTH;
+                postContent = highlightKeyword(content, contentHitSlice, start, end);
+              } else { // 未匹配到内容，直接截取前 200 个字符来显示
+                postContent = content.slice(0, SHOW_WORD_LENGTH);
+              }
+              postData.title = postTitle;
+              postData.content = postContent;
+              postData.url = postURL;
+              postData.weight = postWeight;
+              matchPosts.push(postData);
+            }
+          });
+        }
+
+        var resultInnerHtml = '';
+        if (matchPosts.length) {
+          // 按权重递增的顺序排序，使权重大的优先显示
+          matchPosts.sort(function (left, right) {
+            return right.weight - left.weight;
+          });
+          resultInnerHtml += '<ul>';
+          matchPosts.forEach(function (post) {
+            resultInnerHtml += '<li><a class="search-results-title" href="' + post.url + '">';
+            resultInnerHtml += post.title;
+            resultInnerHtml += '</a><div class="search-results-content">';
+            resultInnerHtml += post.content;
+            resultInnerHtml += '</div></li>';
+          });
+          resultInnerHtml += '</ul>';
+        } else {
+          resultInnerHtml += '<div class="search-results-none"><i class="far fa-meh"></i></div>';
+        }
+        $result.html(resultInnerHtml);
+      };
+      $input.on('input', searchPost);
+      $input.on('keyup', function (e) {
+        if (e.keyCode === Stun.utils.codeToKeyCode('Enter')) {
+          searchPost();
+        }
+      });
+    }
+  });
+}
+
+function closeSearch () {
+  $('body').css({ overflow: 'auto' });
+  $('.search-popup').css({ display: 'none' });
+  $('.search-mask').css({ display: 'none' });
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+  Stun.utils.pjaxReloadLocalSearch = function () {
+    $('.header-nav-search').on('click', function (e) {
+      e.stopPropagation();
+      $('body').css('overflow', 'hidden');
+      $('.search-popup')
+        .velocity('stop')
+        .velocity('transition.expandIn', {
+          duration: 300,
+          complete: function () {
+            $('.search-popup input').focus();
+          }
+        });
+      $('.search-mask')
+        .velocity('stop')
+        .velocity('transition.fadeIn', {
+          duration: 300
+        });
+
+      initSearch();
+    });
+    $('.search-mask, .search-close').on('click', function () {
+      closeSearch();
+    });
+    $(document).on('keydown', function (e) {
+      // Escape <=> 27
+      if (e.keyCode === Stun.utils.codeToKeyCode('Escape')) {
+        closeSearch();
+      }
+    });
+  };
+
+  Stun.utils.pjaxReloadLocalSearch();
+}, false);
+
+function safeOpenUrl(url) {
+  var newTab = window.open();
+  newTab.opener = null;
+  newTab.location = url;
+}
+
+function extSearch(engine) {
+  var engines = {
+    google: 'https://www.google.com/search?q=',
+    bing: 'https://cn.bing.com/search?q=',
+    baidu: 'https://www.baidu.com/s?ie=UTF-8&wd=',
+  };
+  var host = window.location.host;
+  var query = $('.search-input input').val().toLowerCase().trim();
+  var uri = engines[engine] + query + ' site:' + host;
+
+  if (query) {
+    safeOpenUrl(uri);
+  } else {
+    Stun.utils.popAlert('warning', '请输入字符');
+  }
+}
+
+var assistSearchList = window.CONFIG.assistSearch;
+
+if (Array.isArray(assistSearchList)) {
+  assistSearchList.forEach(function (name) {
+    document.querySelector('.search-btns-item--' + name).addEventListener('click', function () {
+      extSearch(name);
+    }, false);
+  });
+}</script><script src="/js/utils.js?v=2.6.2"></script><script src="/js/stun-boot.js?v=2.6.2"></script><script src="/js/scroll.js?v=2.6.2"></script><script src="/js/header.js?v=2.6.2"></script><script src="/js/sidebar.js?v=2.6.2"></script><script type="application/json" src="/search.xml"></script></body></html>
