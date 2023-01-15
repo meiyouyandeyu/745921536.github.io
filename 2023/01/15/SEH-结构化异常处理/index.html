@@ -1,0 +1,438 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.6.2" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.6.2" type="image/png" sizes="32x32"><meta name="description" content="SEH-结构化异常处理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SEH-结构化异常处理">
+<meta property="og:url" content="https://username.github.io/2023/01/15/SEH-%E7%BB%93%E6%9E%84%E5%8C%96%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/index.html">
+<meta property="og:site_name" content="鱼先生的格纳库">
+<meta property="og:description" content="SEH-结构化异常处理">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202301152143664.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202301152154381.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202301152154531.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202301152212291.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202301152244842.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202301152245031.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202301152250845.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202301152251857.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202301152253786.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202301152254831.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202301152257302.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202301152259114.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202301152301611.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202301152304236.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202301152305976.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202301152306981.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202301152306881.png">
+<meta property="article:published_time" content="2023-01-15T15:13:27.000Z">
+<meta property="article:modified_time" content="2023-01-15T15:13:57.948Z">
+<meta property="article:author" content="没有眼的鱼">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202301152143664.png"><title>SEH-结构化异常处理 | 鱼先生的格纳库</title><link ref="canonical" href="https://username.github.io/2023/01/15/SEH-%E7%BB%93%E6%9E%84%E5%8C%96%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.6.2"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  assistSearch: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"ocean","wordWrap":true},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"复制","copySuccess":"复制成功","copyError":"复制失败"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.2"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">分类</span></a></div></div><div class="header-nav-search"><span class="header-nav-search__icon"><i class="fas fa-search"></i></span><span class="header-nav-search__text">搜索</span></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">鱼先生的格纳库</div><div class="header-banner-info__subtitle">没有眼的鱼</div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">SEH-结构化异常处理</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2023-01-15</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2023-01-15</span></span></div></header><div class="post-body">
+        <h1 id="SEH-结构化异常处理"   >
+          <a href="#SEH-结构化异常处理" class="heading-link"><i class="fas fa-link"></i></a><a href="#SEH-结构化异常处理" class="headerlink" title="SEH-结构化异常处理"></a>SEH-结构化异常处理</h1>
+      <p>本文为《逆向工程核心原理》读书笔记，采用的程序示例均来源于此书</p>
+
+        <h2 id="什么是异常"   >
+          <a href="#什么是异常" class="heading-link"><i class="fas fa-link"></i></a><a href="#什么是异常" class="headerlink" title="什么是异常"></a>什么是异常</h2>
+      <p>要学习异常处理，首先要了解什么异常</p>
+<p>常见的异常如下：</p>
+
+        <h3 id="EXCEPTION-ACCESS-VIOLATION-C0000005"   >
+          <a href="#EXCEPTION-ACCESS-VIOLATION-C0000005" class="heading-link"><i class="fas fa-link"></i></a><a href="#EXCEPTION-ACCESS-VIOLATION-C0000005" class="headerlink" title="EXCEPTION_ACCESS_VIOLATION(C0000005)"></a>EXCEPTION_ACCESS_VIOLATION(C0000005)</h3>
+      <p>访问内存异常，例如访问不存在的或者是不具权限的内存区域</p>
+<p>例如，这里将0x1移入0x0的地址，在x64dbg中可以看到不同段的权限信息</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xor eax, eax</span><br><span class="line">mov dword ptr ds:[eax], 0x1</span><br></pre></td></tr></table></div></figure>
+
+<p><img src="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202301152143664.png" alt="image-20230115214338599"></p>
+<p>可以看出，0x0是非法地址，于是就会触发异常。</p>
+<p>不仅是访问，修改无“write”权限的地址，或者内核区域，都会引发异常</p>
+
+        <h3 id="EXCEPTION-BREAKPOINT-80000003"   >
+          <a href="#EXCEPTION-BREAKPOINT-80000003" class="heading-link"><i class="fas fa-link"></i></a><a href="#EXCEPTION-BREAKPOINT-80000003" class="headerlink" title="EXCEPTION_BREAKPOINT(80000003)"></a>EXCEPTION_BREAKPOINT(80000003)</h3>
+      <p>断点异常</p>
+<p>调试器利用断点异常来实现断点功能</p>
+<p>INT3断点对应的16进制为0xCC（IA-32）</p>
+<p><img src="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202301152154381.png" alt="image-20230115215403355"></p>
+<p>在0x401000处dump内存，再用010打开</p>
+<p><img src="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202301152154531.png" alt="image-20230115215442507"></p>
+<p>很明显发现5A10400前面的68变成了CC，即这里已经被下了断点</p>
+
+        <h3 id="EXCEPTION-ILLEGAL-INSTRUCTION-C000001D"   >
+          <a href="#EXCEPTION-ILLEGAL-INSTRUCTION-C000001D" class="heading-link"><i class="fas fa-link"></i></a><a href="#EXCEPTION-ILLEGAL-INSTRUCTION-C000001D" class="headerlink" title="EXCEPTION_ILLEGAL_INSTRUCTION(C000001D)"></a>EXCEPTION_ILLEGAL_INSTRUCTION(C000001D)</h3>
+      <p>顾名思义，非法指令，当调试器遇到无法解析的指令的时候就会触发该异常</p>
+
+        <h3 id="EXCEPTION-INT-DIVIDE-BY-ZERO-C0000094"   >
+          <a href="#EXCEPTION-INT-DIVIDE-BY-ZERO-C0000094" class="heading-link"><i class="fas fa-link"></i></a><a href="#EXCEPTION-INT-DIVIDE-BY-ZERO-C0000094" class="headerlink" title="EXCEPTION_INT_DIVIDE_BY_ZERO(C0000094)"></a>EXCEPTION_INT_DIVIDE_BY_ZERO(C0000094)</h3>
+      <p>除零异常</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xor eax, eax</span><br><span class="line">div eax</span><br></pre></td></tr></table></div></figure>
+
+<p>除法的分母为零的时候，触发异常</p>
+
+        <h2 id="SEH异常处理工作原理"   >
+          <a href="#SEH异常处理工作原理" class="heading-link"><i class="fas fa-link"></i></a><a href="#SEH异常处理工作原理" class="headerlink" title="SEH异常处理工作原理"></a>SEH异常处理工作原理</h2>
+      <p>SEH 是针对于异常的一种处理机制，这个异常分为硬件异常和软件异常，这里所说的硬件异常是狭义的异常，也就是 CPU 产生的异常。比如除零操作，CPU 执行除零操作时候，会自主启动异常处理机制。软件异常，就是程序模拟的异常，比如调用 RaiseException 函数。软件异常是可以随意触发的，windows 系统内部遇到问题会触发。</p>
+<p>要让SEH处理异常，首先得注册异常。SEH是线程相关的，也就是说，每个线程都有他自己的异常处理注册表。异常处理注册表在内存中以结构体链表的形式储存</p>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">_EXCEPTION_REGISTRATION_RECORD</span> &#123;</span><br><span class="line">	<span class="keyword">struct</span> <span class="title class_">_EXCEPTION_REGISTRATION_RECORD</span> *Next;</span><br><span class="line">    PEXCEPTION_ROUTINE Handler;</span><br><span class="line">&#125; EXCEPTION_REGISTRATION_RECORD;</span><br></pre></td></tr></table></div></figure>
+
+<p>结构体指针Next则指向下一个结点。当触发异常的时候，遍历该链表以找到对应的Hander来处理，否则则直接结束程序。</p>
+<p>若Next &#x3D;&#x3D; 0xFFFFFFFF，则说明异常处理注册表结束。</p>
+<p><img src="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202301152212291.png" alt="image-20230115221235264"></p>
+<p>Handler指向异常处理函数</p>
+<p>该函数接收到异常后会返回EXCEPTION_DISPOSITION这个枚举类型，每个枚举类型将会指示异常处理的下一步进程</p>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">enum</span> <span class="title class_">_EXCEPTION_DISPOSITION</span> &#123;</span><br><span class="line">    ExceptionContinueExecution, 已处理异常，从断点处继续执行</span><br><span class="line">    ExceptionContinueSearch,    未处理异常，继续搜索异常处理注册表</span><br><span class="line">    ExceptionNestedException,   OS内部使用</span><br><span class="line">    ExceptionCollidedUnwind     OS内部使用</span><br><span class="line">&#125; EXCEPTION_DISPOSITION;</span><br></pre></td></tr></table></div></figure>
+
+<p>该函数会接收EXCEPTION_RECORD这个结构体来储存异常相关的信息</p>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">_EXCEPTION_RECORD</span> &#123;</span><br><span class="line">    DWORD ExceptionCode;        <span class="comment">//异常代码</span></span><br><span class="line">    DWORD ExceptionFlags;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">_EXCEPTION_RECORD</span> *ExceptionRecord;</span><br><span class="line">    PVOID ExceptionAddress;     <span class="comment">//异常发生的地址</span></span><br><span class="line">    DWORD NumberParameters;</span><br><span class="line">    ULONG_PTR ExceptionInformation[EXCEPTION_MAXIMUM_PARAMETERS];</span><br><span class="line">&#125; EXCEPTION_RECORD;</span><br></pre></td></tr></table></div></figure>
+
+<p>因为SEH是线程相关的，因此为了在多线程的环境下安全运行，Handler函数还会接收一个CONTEXT结构体来保存寄存器的相关信息</p>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">_CONTEXT</span> &#123;</span><br><span class="line">    <span class="comment">//用来表示该结构中的哪些域有效</span></span><br><span class="line">     DWORD ContextFlags; </span><br><span class="line">    </span><br><span class="line">    <span class="comment">//调试寄存器</span></span><br><span class="line">     DWORD   Dr0, Dr1, Dr2, Dr3, Dr6, Dr7; </span><br><span class="line">    <span class="comment">//偏移值  04h  08h  0Ch  10h  14h  18h</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//浮点寄存器区</span></span><br><span class="line">     FLOATING_SAVE_AREA FloatSave; </span><br><span class="line">    </span><br><span class="line">    <span class="comment">//段寄存器</span></span><br><span class="line">     DWORD   SegGs, SegFs, SegEs, SegDs; </span><br><span class="line">    <span class="comment">//偏移值    88h    90h    94h    98h </span></span><br><span class="line">      </span><br><span class="line">    <span class="comment">//通用寄存器组</span></span><br><span class="line">     DWORD   Edi, Esi, Ebx, Edx, Ecx, Eax; </span><br><span class="line">    <span class="comment">//偏移值  9Ch  A0h  A4h  A8h  ACh  B0h</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//控制寄存器组</span></span><br><span class="line">     DWORD   Ebp, Eip, SegCs, EFlags, Esp, SegSs; </span><br><span class="line">    <span class="comment">//偏移值  B4h  B8h    BCh     C0h  C4h    C8h</span></span><br><span class="line"></span><br><span class="line">     <span class="comment">//扩展寄存器，只有特定的处理器才有</span></span><br><span class="line">     BYTE    ExtendedRegisters[MAXIMUM_SUPPORTED_EXTENSION]; <span class="comment">//512bytes</span></span><br><span class="line">&#125; CONTEXT;</span><br></pre></td></tr></table></div></figure>
+
+<p>当异常发生时，执行异常代码的线程中断，转而运行SEH，而发生异常代码的地址将会储存在CONTEXT.EIP(偏移：0xB8)中。当异常处理函数执行完之后依靠CONTEXT.EIP来使得中断的线程继续执行。</p>
+
+        <h2 id="调试样例"   >
+          <a href="#调试样例" class="heading-link"><i class="fas fa-link"></i></a><a href="#调试样例" class="headerlink" title="调试样例"></a>调试样例</h2>
+      <p>seh.exe</p>
+<p>整体代码如下</p>
+<p><img src="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202301152244842.png" alt="image-20230115224420795"></p>
+<p>下面进一步调试分析</p>
+<p>首先是注册异常处理函数</p>
+<p><img src="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202301152245031.png" alt="image-20230115224459999"></p>
+<p>通过TEB结构体成员NtTib访问SEH链。而TEB.NtTib.ExceptionList成员为TEB结构体的第一个成员。段寄存器FS指向段内存的起始地址，TEB结构体即位于此。因此通过FS:[0]来访问SEH链并且将位于0x40105A地址的异常处理函数加入到SEH链中。</p>
+<p><img src="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202301152250845.png" alt="image-20230115225043825"></p>
+<p>在触发了异常后，将会立即跳到位于0x40105A的异常处理函数</p>
+<p><img src="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202301152251857.png" alt="image-20230115225140825"></p>
+<p>而此时的栈中已经储存了异常处理函数所需要的参数</p>
+<p><img src="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202301152253786.png" alt="image-20230115225308763"></p>
+<p>0x0019FA64 </p>
+<p>第一个参数指向的是EXCEPTION_RECORD结构体</p>
+<p><img src="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202301152254831.png" alt="image-20230115225442803"></p>
+<p>可以看到异常代码0xC0000005以及触发异常的地址0x00401019</p>
+<p>0x0019FF24</p>
+<p>第二个参数指向SEH链的起始位置，在x64dbg的SEH选项卡中可以看到</p>
+<p><img src="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202301152257302.png" alt="image-20230115225705260"></p>
+<p>0x0019FAB4</p>
+<p>第三个参数指向CONTEXT结构体</p>
+<p><img src="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202301152259114.png" alt="image-20230115225943085"></p>
+<p>在B8偏移位可以找到异常触发的地址0x00401019</p>
+<p>在进入了SEH函数后，就是反调试的代码</p>
+<p><img src="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202301152301611.png" alt="image-20230115230144578"></p>
+<p>这里将fs:[30]指向PEB结构体，而PEB结构体0x2的地方是PEB.BeingDebugged</p>
+<p>当程序被调试的时候，返回1</p>
+<p><img src="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202301152304236.png" alt="image-20230115230411196"></p>
+<p>于是便打印<code>Debugger detected :(</code></p>
+<p><img src="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202301152305976.png" alt="image-20230115230544948"></p>
+<p>最后将压入栈的参数全部出栈，删除SEH函数</p>
+<p>删除前的栈</p>
+<p><img src="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202301152306981.png" alt="image-20230115230629953"></p>
+<p>删除后的栈</p>
+<p><img src="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202301152306881.png" alt="image-20230115230657856"></p>
+
+        <h2 id="更加完善的异常处理"   >
+          <a href="#更加完善的异常处理" class="heading-link"><i class="fas fa-link"></i></a><a href="#更加完善的异常处理" class="headerlink" title="更加完善的异常处理"></a>更加完善的异常处理</h2>
+      <p>在实际使用的过程中，微软提供的SEH存在不少缺陷。现在常用的基本上都是编译器的增强版，例如微软的编译器MSC里提供的__try, __finally, __except</p>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><nav class="post-paginator paginator"><div class="paginator-next"><a class="paginator-next__link" href="/2023/01/10/NPUCTF2020-Baby-Obfuscation/"><span class="paginator-prev__text">NPUCTF2020_Baby_Obfuscation</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SEH-%E7%BB%93%E6%9E%84%E5%8C%96%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">
+          SEH-结构化异常处理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%BC%82%E5%B8%B8"><span class="toc-number">1.1.</span> <span class="toc-text">
+          什么是异常</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#EXCEPTION-ACCESS-VIOLATION-C0000005"><span class="toc-number">1.1.1.</span> <span class="toc-text">
+          EXCEPTION_ACCESS_VIOLATION(C0000005)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EXCEPTION-BREAKPOINT-80000003"><span class="toc-number">1.1.2.</span> <span class="toc-text">
+          EXCEPTION_BREAKPOINT(80000003)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EXCEPTION-ILLEGAL-INSTRUCTION-C000001D"><span class="toc-number">1.1.3.</span> <span class="toc-text">
+          EXCEPTION_ILLEGAL_INSTRUCTION(C000001D)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EXCEPTION-INT-DIVIDE-BY-ZERO-C0000094"><span class="toc-number">1.1.4.</span> <span class="toc-text">
+          EXCEPTION_INT_DIVIDE_BY_ZERO(C0000094)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SEH%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">1.2.</span> <span class="toc-text">
+          SEH异常处理工作原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B0%83%E8%AF%95%E6%A0%B7%E4%BE%8B"><span class="toc-number">1.3.</span> <span class="toc-text">
+          调试样例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E5%8A%A0%E5%AE%8C%E5%96%84%E7%9A%84%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="toc-number">1.4.</span> <span class="toc-text">
+          更加完善的异常处理</span></a></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/131.jpg" alt="avatar"></div><p class="sidebar-ov-author__text">少壮不努力,老大亚托莉</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="mailto:745921536@qq.com" target="_blank" rel="noopener" data-popover="social.745921536@qq.com" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fas fa-envelope"></i></span></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">43</div><div class="sidebar-ov-state-item__name">归档</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">4</div><div class="sidebar-ov-state-item__name">分类</div></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2023</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>没有眼的鱼</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><div class="search-mask"></div><div class="search-popup"><span class="search-close"></span><div class="search-input"><input placeholder="搜索文章（支持多关键词，请用空格分隔）"></div><div class="search-results"></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script>function initSearch() {
+  var isXML = true;
+  var search_path = 'search.xml';
+
+  if (!search_path) {
+    search_path = 'search.xml';
+  } else if (/json$/i.test(search_path)) {
+    isXML = false;
+  }
+
+  var path = '/' + search_path;
+  $.ajax({
+    url: path,
+    dataType: isXML ? 'xml' : 'json',
+    async: true,
+    success: function (res) {
+      var datas = isXML ? $('entry', res).map(function () {
+        // 将 XML 转为 JSON
+        return {
+          title: $('title', this).text(),
+          content: $('content', this).text(),
+          url: $('url', this).text()
+        };
+      }).get() : res;
+      var $input = $('.search-input input');
+      var $result = $('.search-results');
+      // 搜索对象（标题、内容）的权重，影响显示顺序
+      var WEIGHT = { title: 100, content: 1 };
+      var searchPost = function () {
+        var searchText = $input.val().toLowerCase().trim();
+        // 根据空白字符分隔关键字
+        var keywords = searchText.split(/[\s]+/);
+        // 搜索结果
+        var matchPosts = [];
+
+        // 有多个关键字时，将原文字整个保存下来
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        // 防止未输入字符时搜索
+        if (searchText.length > 0) {
+          datas.forEach(function (data) {
+            var isMatch  = false;
+            // 没有标题的文章使用预设的 i18n 变量代替
+            var title = (data.title && data.title.trim()) || '[ 文章无标题 ]';
+            var titleLower = title && title.toLowerCase();
+            // 删除 HTML 标签 和 所有空白字符
+            var content = data.content && data.content.replace(/<[^>]+>/g, '');
+            var contentLower = content && content.toLowerCase();
+            // 删除重复的 /
+            var postURL = data.url && decodeURI(data.url).replace(/\/{2,}/g, '/');
+            // 标题中匹配到的关键词
+            var titleHitSlice = [];
+            // 内容中匹配到的关键词
+            var contentHitSlice = [];
+
+            keywords.forEach(function (keyword) {
+              /**
+              * 获取匹配的关键词的索引
+              * @param {String} keyword 要匹配的关键字
+              * @param {String} text 原文字
+              * @param {Boolean} caseSensitive 是否区分大小写
+              * @param {Number} weight 匹配对象的权重。权重大的优先显示
+              * @return {Array}
+              */
+              function getIndexByword (word, text, caseSensitive, weight) {
+                if (!word || !text) {
+                  return [];
+                };
+
+                var startIndex = 0; // 每次匹配的开始索引
+                var index = -1;     // 匹配到的索引值
+                var result = [];    // 匹配结果
+
+                if (!caseSensitive) {
+                  word = word.toLowerCase();
+                  text = text.toLowerCase();
+                }
+
+                while((index = text.indexOf(word, startIndex)) !== -1) {
+                  var hasMatch = false;
+                  // 索引位置相同的关键词，保留长度较长的
+                  titleHitSlice.forEach(function (hit) {
+                    if (hit.index === index && hit.word.length < word.length) {
+                      hit.word = word;
+                      hasMatch = true;
+                    }
+                  });
+                  startIndex = index + word.length;
+                  !hasMatch && result.push({ index: index, word: word, weight: weight });
+                }
+                return result;
+              }
+              titleHitSlice = titleHitSlice.concat(getIndexByword(keyword, titleLower, false, WEIGHT.title));
+              contentHitSlice = contentHitSlice.concat(getIndexByword(keyword, contentLower, false, WEIGHT.content));
+            });
+
+            var hitTitle = titleHitSlice.length;
+            var hitContent = contentHitSlice.length;
+
+            if (hitTitle > 0 || hitContent > 0) {
+              isMatch = true;
+            }
+            if (isMatch) {
+              ;[titleHitSlice, contentHitSlice].forEach(function (hit) {
+                // 按照匹配文字的索引的递增顺序排序
+                hit.sort(function (left, right) {
+                  return left.index - right.index;
+                });
+              });
+              /**
+              * 给文本中匹配到的关键词添加标记，从而进行高亮显示
+              * @param {String} text 原文本
+              * @param {Array} hitSlice 匹配项的索引信息
+              * @param {Number} start 开始索引
+              * @param {Number} end 结束索引
+              * @return {String}
+              */
+              function highlightKeyword (text, hitSlice, start, end) {
+                if (!text || !hitSlice || !hitSlice.length) {
+                  return;
+                }
+
+                var result = '';
+                var startIndex = start;
+                var endIndex = end;
+                hitSlice.forEach(function (hit) {
+                  if (hit.index < startIndex) {
+                    return;
+                  }
+
+                  var hitWordEnd = hit.index + hit.word.length;
+                  result += text.slice(startIndex, hit.index);
+                  result += '<b>' + text.slice(hit.index, hitWordEnd) + '</b>';
+                  startIndex = hitWordEnd;
+                });
+                result += text.slice(startIndex, endIndex);
+                return result;
+              }
+
+              var postData = {};
+              // 文章总的搜索权重
+              var postWeight = titleHitSlice.length * WEIGHT.title + contentHitSlice.length * WEIGHT.content;
+              // 标记匹配关键词后的标题
+              var postTitle = highlightKeyword(title, titleHitSlice, 0, title.length) || title;
+              // 标记匹配关键词后的内容
+              var postContent;
+              // 显示内容的长度
+              var SHOW_WORD_LENGTH = 200;
+              // 命中关键词前的字符显示长度
+              var SHOW_WORD_FRONT_LENGTH = 20;
+              var SHOW_WORD_END_LENGTH = SHOW_WORD_LENGTH - SHOW_WORD_FRONT_LENGTH;
+
+              // 截取匹配的第一个字符，前后共 200 个字符来显示
+              if (contentHitSlice.length > 0) {
+                var firstIndex = contentHitSlice[0].index;
+                var start = firstIndex > SHOW_WORD_FRONT_LENGTH ? firstIndex - SHOW_WORD_FRONT_LENGTH : 0;
+                var end = firstIndex + SHOW_WORD_END_LENGTH;
+                postContent = highlightKeyword(content, contentHitSlice, start, end);
+              } else { // 未匹配到内容，直接截取前 200 个字符来显示
+                postContent = content.slice(0, SHOW_WORD_LENGTH);
+              }
+              postData.title = postTitle;
+              postData.content = postContent;
+              postData.url = postURL;
+              postData.weight = postWeight;
+              matchPosts.push(postData);
+            }
+          });
+        }
+
+        var resultInnerHtml = '';
+        if (matchPosts.length) {
+          // 按权重递增的顺序排序，使权重大的优先显示
+          matchPosts.sort(function (left, right) {
+            return right.weight - left.weight;
+          });
+          resultInnerHtml += '<ul>';
+          matchPosts.forEach(function (post) {
+            resultInnerHtml += '<li><a class="search-results-title" href="' + post.url + '">';
+            resultInnerHtml += post.title;
+            resultInnerHtml += '</a><div class="search-results-content">';
+            resultInnerHtml += post.content;
+            resultInnerHtml += '</div></li>';
+          });
+          resultInnerHtml += '</ul>';
+        } else {
+          resultInnerHtml += '<div class="search-results-none"><i class="far fa-meh"></i></div>';
+        }
+        $result.html(resultInnerHtml);
+      };
+      $input.on('input', searchPost);
+      $input.on('keyup', function (e) {
+        if (e.keyCode === Stun.utils.codeToKeyCode('Enter')) {
+          searchPost();
+        }
+      });
+    }
+  });
+}
+
+function closeSearch () {
+  $('body').css({ overflow: 'auto' });
+  $('.search-popup').css({ display: 'none' });
+  $('.search-mask').css({ display: 'none' });
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+  Stun.utils.pjaxReloadLocalSearch = function () {
+    $('.header-nav-search').on('click', function (e) {
+      e.stopPropagation();
+      $('body').css('overflow', 'hidden');
+      $('.search-popup')
+        .velocity('stop')
+        .velocity('transition.expandIn', {
+          duration: 300,
+          complete: function () {
+            $('.search-popup input').focus();
+          }
+        });
+      $('.search-mask')
+        .velocity('stop')
+        .velocity('transition.fadeIn', {
+          duration: 300
+        });
+
+      initSearch();
+    });
+    $('.search-mask, .search-close').on('click', function () {
+      closeSearch();
+    });
+    $(document).on('keydown', function (e) {
+      // Escape <=> 27
+      if (e.keyCode === Stun.utils.codeToKeyCode('Escape')) {
+        closeSearch();
+      }
+    });
+  };
+
+  Stun.utils.pjaxReloadLocalSearch();
+}, false);
+
+function safeOpenUrl(url) {
+  var newTab = window.open();
+  newTab.opener = null;
+  newTab.location = url;
+}
+
+function extSearch(engine) {
+  var engines = {
+    google: 'https://www.google.com/search?q=',
+    bing: 'https://cn.bing.com/search?q=',
+    baidu: 'https://www.baidu.com/s?ie=UTF-8&wd=',
+  };
+  var host = window.location.host;
+  var query = $('.search-input input').val().toLowerCase().trim();
+  var uri = engines[engine] + query + ' site:' + host;
+
+  if (query) {
+    safeOpenUrl(uri);
+  } else {
+    Stun.utils.popAlert('warning', '请输入字符');
+  }
+}
+
+var assistSearchList = window.CONFIG.assistSearch;
+
+if (Array.isArray(assistSearchList)) {
+  assistSearchList.forEach(function (name) {
+    document.querySelector('.search-btns-item--' + name).addEventListener('click', function () {
+      extSearch(name);
+    }, false);
+  });
+}</script><script src="/js/utils.js?v=2.6.2"></script><script src="/js/stun-boot.js?v=2.6.2"></script><script src="/js/scroll.js?v=2.6.2"></script><script src="/js/header.js?v=2.6.2"></script><script src="/js/sidebar.js?v=2.6.2"></script><script type="application/json" src="/search.xml"></script></body></html>
