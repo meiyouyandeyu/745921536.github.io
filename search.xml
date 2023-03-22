@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>SUCTF2019_hardcpp</title>
+      <link href="/2023/03/22/SUCTF2019-hardcpp/"/>
+      <url>/2023/03/22/SUCTF2019-hardcpp/</url>
+      
+        <content type="html"><![CDATA[        <h2 id="SUCTF2019-hardcpp"   >          <a href="#SUCTF2019-hardcpp" class="heading-link"><i class="fas fa-link"></i></a><a href="#SUCTF2019-hardcpp" class="headerlink" title="[SUCTF2019]hardcpp"></a>[SUCTF2019]hardcpp</h2>      <p>ollvm混淆，去混淆后</p><p><img src="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202303221923074.png" alt="image-20230322192248478"></p><p>题目上面给了提示</p><p><img src="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202303221923782.png" alt="image-20230322192340754"></p><p>这串16进制MD5解密后就是<code>#</code></p><p>写脚本</p><figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;fstream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">char</span> input[<span class="number">22</span>];</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">char</span> enc[<span class="number">20</span>] = &#123;</span><br><span class="line">        <span class="number">0xF3</span>, <span class="number">0x2E</span>, <span class="number">0x18</span>, <span class="number">0x36</span>, <span class="number">0xE1</span>, <span class="number">0x4C</span>, <span class="number">0x22</span>, <span class="number">0xD1</span>, <span class="number">0xF9</span>, <span class="number">0x8C</span>, <span class="number">0x40</span>, <span class="number">0x76</span>, <span class="number">0xF4</span>, <span class="number">0x0E</span>, <span class="number">0x00</span>, <span class="number">0x05</span>, </span><br><span class="line">        <span class="number">0xA3</span>, <span class="number">0x90</span>, <span class="number">0x0E</span>, <span class="number">0xA5</span></span><br><span class="line">    &#125;;</span><br><span class="line">    input[<span class="number">0</span>] = <span class="string">&#x27;#&#x27;</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt; <span class="number">21</span>; i++) &#123;</span><br><span class="line">        <span class="type">unsigned</span> <span class="type">char</span> x = ((input[i<span class="number">-1</span>] ^ <span class="number">18</span>) * <span class="number">3</span>) + <span class="number">2</span>;</span><br><span class="line">        <span class="type">unsigned</span> <span class="type">char</span> y = enc[i<span class="number">-1</span>] ^ x;</span><br><span class="line">        y = y - (input[i<span class="number">-1</span>] % <span class="number">7</span>);</span><br><span class="line">        input[i] = y ^ <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">21</span>; i++) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%c&quot;</span>, input[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure><p>flag{mY-CurR1ed_Fns}</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> CTF </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>PE文件结构</title>
       <link href="/2023/03/21/PE%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/"/>
       <url>/2023/03/21/PE%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/</url>
