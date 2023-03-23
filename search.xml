@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>wateverCTF_2019_Repyc</title>
+      <link href="/2023/03/23/wateverCTF-2019-Repyc/"/>
+      <url>/2023/03/23/wateverCTF-2019-Repyc/</url>
+      
+        <content type="html"><![CDATA[        <h1 id="watevrCTF-2019-Repyc"   >          <a href="#watevrCTF-2019-Repyc" class="heading-link"><i class="fas fa-link"></i></a><a href="#watevrCTF-2019-Repyc" class="headerlink" title="[watevrCTF 2019]Repyc"></a>[watevrCTF 2019]Repyc</h1>      <p>pyc文件</p><p><img src="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202303231856670.png" alt="image-20230323185637439"></p><p>单纯的把变量名换成奇奇怪怪的东西</p><p><img src="https://raw.githubusercontent.com/745921536/MyImagepost/main/img/202303231857835.png" alt="image-20230323185731660"></p><p>写脚本</p><figure class="highlight python"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">flag = <span class="string">&quot;á×äÓâæíäàßåÉÛãåäÉÖÓÉäàÓÉÖÓåäÉÓÚÕæïèäßÙÚÉÛÓäàÙÔÉÓâæÉàÓÚÕÓÒÙæäàÉäàßåÉßåÉäàÓÉÚÓáÉ·Ôâ×ÚÕÓÔÉ³ÚÕæïèäßÙÚÉÅä×ÚÔ×æÔÉ×Úïá×ïåÉßÉÔÙÚäÉæÓ×ÜÜïÉà×âÓÉ×ÉÑÙÙÔÉâßÔÉÖãäÉßÉæÓ×ÜÜïÉÓÚÞÙïÉäàßåÉåÙÚÑÉßÉàÙèÓÉïÙãÉáßÜÜÉÓÚÞÙïÉßäÉ×åáÓÜÜÉïÙãäãÖÓÕÙÛá×äÕà©â«³£ï²ÕÔÈ·±â¨ë&quot;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(flag)):</span><br><span class="line">    x = <span class="built_in">ord</span>(flag[i])</span><br><span class="line">    x = ((x+<span class="number">15</span>) ^ <span class="number">135</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">chr</span>(x&amp;<span class="number">0xff</span>), end=<span class="string">&quot;&quot;</span>)</span><br></pre></td></tr></table></div></figure><p>watevr{this_must_be_the_best_encryption_method_evr_henceforth_this_is_the_new_Advanced_Encryption_Standard_anyways_i_dont_really_have_a_good_vid_but_i_really_enjoy_this_song_i_hope_you_will_enjoy_it_aswell!_youtube.com&#x2F;watch?v&#x3D;E5yFcdPAGv0} </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> CTF </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>SUCTF2019_hardcpp</title>
       <link href="/2023/03/22/SUCTF2019-hardcpp/"/>
       <url>/2023/03/22/SUCTF2019-hardcpp/</url>
