@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>CFI-CTF2018_Automated_Reversing</title>
+      <link href="/2023/04/18/CFI-CTF2018-Automated-Reversing/"/>
+      <url>/2023/04/18/CFI-CTF2018-Automated-Reversing/</url>
+      
+        <content type="html"><![CDATA[        <h1 id="CFI-CTF-2018-Automated-Reversing"   >          <a href="#CFI-CTF-2018-Automated-Reversing" class="heading-link"><i class="fas fa-link"></i></a><a href="#CFI-CTF-2018-Automated-Reversing" class="headerlink" title="[CFI-CTF 2018]Automated Reversing"></a>[CFI-CTF 2018]Automated Reversing</h1>      <p>打开全是elf文件</p><p><img src="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202304182102380.png" alt="image-20230418210205327"></p><p>每个文件的格式都是固定的</p><p><img src="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202304182109025.png" alt="image-20230418210947989"></p><p>仅有中间这里有区别</p><p>写脚本</p><figure class="highlight python"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">1009</span>):</span><br><span class="line">    path = <span class="string">r&quot;binaries\binary&#123;&#125;&quot;</span>.<span class="built_in">format</span>(i)</span><br><span class="line">    f = <span class="built_in">open</span>(path, <span class="string">&quot;rb&quot;</span>)</span><br><span class="line">    buf = f.read()</span><br><span class="line">    flag = buf[<span class="number">0xce</span>]</span><br><span class="line">    operate = buf[<span class="number">0xca</span>]</span><br><span class="line">    num = buf[<span class="number">0xcb</span>]</span><br><span class="line">    <span class="keyword">if</span> operate == <span class="number">0xf2</span>:</span><br><span class="line">        flag ^= num</span><br><span class="line">    <span class="keyword">elif</span> operate == <span class="number">0xea</span>:</span><br><span class="line">        flag += num</span><br><span class="line">    <span class="keyword">elif</span> operate == <span class="number">0xc2</span>:</span><br><span class="line">        flag -= num</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">chr</span>(flag&amp;<span class="number">0xff</span>), end=<span class="string">&quot;&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></div></figure><p>flag{1s_th1s_4_pr0g_ch4ll_0r_4_r3ve3se_ch4ll?}</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> rewp </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>ciscn_2019_c_1</title>
       <link href="/2023/04/01/ciscn-2019-c-1/"/>
       <url>/2023/04/01/ciscn-2019-c-1/</url>
