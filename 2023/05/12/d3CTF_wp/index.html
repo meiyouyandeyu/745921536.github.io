@@ -1,0 +1,443 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.6.2" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.6.2" type="image/png" sizes="32x32"><meta name="description" content="AntCTF x D^3CTF 2023 题目复现">
+<meta property="og:type" content="article">
+<meta property="og:title" content="d3CTF2023">
+<meta property="og:url" content="https://username.github.io/2023/05/12/d3CTF_wp/index.html">
+<meta property="og:site_name" content="鱼先生的格纳库">
+<meta property="og:description" content="AntCTF x D^3CTF 2023 题目复现">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305030154422.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305030155553.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305030156010.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305030158782.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305030201808.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305051416834.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305051422786.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305051423243.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305051424048.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305051429212.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305051432694.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305051433548.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305051433714.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305112112068.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305112113969.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305112225327.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305112225111.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305060009061.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305060010356.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305060021426.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305060022617.png">
+<meta property="article:published_time" content="2023-05-11T17:02:49.000Z">
+<meta property="article:modified_time" content="2023-05-11T17:02:25.932Z">
+<meta property="article:author" content="没有眼的鱼">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305030154422.png"><title>d3CTF2023 | 鱼先生的格纳库</title><link ref="canonical" href="https://username.github.io/2023/05/12/d3CTF_wp/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.6.2"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  assistSearch: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"ocean","wordWrap":true},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"复制","copySuccess":"复制成功","copyError":"复制失败"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.2"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">分类</span></a></div></div><div class="header-nav-search"><span class="header-nav-search__icon"><i class="fas fa-search"></i></span><span class="header-nav-search__text">搜索</span></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">鱼先生的格纳库</div><div class="header-banner-info__subtitle">没有眼的鱼</div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">d3CTF2023</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2023-05-12</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2023-05-12</span></span></div></header><div class="post-body">
+        <h1 id="d3CTF2023"   >
+          <a href="#d3CTF2023" class="heading-link"><i class="fas fa-link"></i></a><a href="#d3CTF2023" class="headerlink" title="d3CTF2023"></a>d3CTF2023</h1>
+      <p>AntCTF x D^3CTF 2023 题目复现</p>
+
+        <h2 id="d3sky"   >
+          <a href="#d3sky" class="heading-link"><i class="fas fa-link"></i></a><a href="#d3sky" class="headerlink" title="d3sky"></a>d3sky</h2>
+      <p><img src="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305030154422.png" alt="image-20230503015455343"></p>
+<p>32位打开，加了TLS反调试</p>
+<p><img src="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305030155553.png" alt="image-20230503015530528"></p>
+<p><img src="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305030156010.png" alt="image-20230503015559974"></p>
+<p>利用除零异常将密钥改为<code>YunZh1JunAlkaid</code></p>
+<p>然后进行rc4加密</p>
+<p>主函数的逻辑比较简单的虚拟机</p>
+<p><img src="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305030158782.png" alt="image-20230503015802739"></p>
+<p>以v9为偏移然后读取三个字符后进行rc4加密</p>
+<p>将加密后的数据作为操作码进行执行</p>
+<p>然后再加密打乱Sbox</p>
+<p>首先提取出指令码进行解密</p>
+<figure class="highlight python"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">arr = [<span class="number">0x009E</span>, <span class="number">0x0028</span>, <span class="number">0x00F5</span>, <span class="number">0x0075</span>, <span class="number">0x0073</span>, <span class="number">0x0073</span>, <span class="number">0x0030</span>, <span class="number">0x007E</span>, <span class="number">0x0048</span>, <span class="number">0x0048</span>, <span class="number">0x00F2</span>, <span class="number">0x002F</span>, <span class="number">0x003D</span>, <span class="number">0x00EC</span>,</span><br><span class="line">       <span class="number">0x0001</span>, <span class="number">0x0026</span>, <span class="number">0x003E</span>, <span class="number">0x00CD</span>, <span class="number">0x0082</span>, <span class="number">0x00AD</span>, <span class="number">0x00B1</span>, <span class="number">0x00D1</span>, <span class="number">0x0036</span>, <span class="number">0x00D2</span>, <span class="number">0x00B4</span>, <span class="number">0x00E5</span>, <span class="number">0x00E8</span>, <span class="number">0x004C</span>,</span><br><span class="line">       <span class="number">0x003D</span>, <span class="number">0x000C</span>, <span class="number">0x0073</span>, <span class="number">0x00FD</span>, <span class="number">0x0059</span>, <span class="number">0x00A7</span>, <span class="number">0x0048</span>, <span class="number">0x0093</span>, <span class="number">0x00FD</span>, <span class="number">0x0006</span>, <span class="number">0x00E0</span>, <span class="number">0x0044</span>, <span class="number">0x0048</span>, <span class="number">0x0071</span>,</span><br><span class="line">       <span class="number">0x0094</span>, <span class="number">0x004A</span>, <span class="number">0x008E</span>, <span class="number">0x00A4</span>, <span class="number">0x0036</span>, <span class="number">0x0091</span>, <span class="number">0x0023</span>, <span class="number">0x00EE</span>, <span class="number">0x0068</span>, <span class="number">0x00C1</span>, <span class="number">0x005D</span>, <span class="number">0x000B</span>, <span class="number">0x004D</span>, <span class="number">0x001A</span>,</span><br><span class="line">       <span class="number">0x0074</span>, <span class="number">0x0083</span>, <span class="number">0x0051</span>, <span class="number">0x0052</span>, <span class="number">0x00EE</span>, <span class="number">0x00FE</span>, <span class="number">0x0011</span>, <span class="number">0x00A2</span>, <span class="number">0x00A1</span>, <span class="number">0x0064</span>, <span class="number">0x00BD</span>, <span class="number">0x0098</span>, <span class="number">0x004D</span>, <span class="number">0x00B9</span>,</span><br><span class="line">       <span class="number">0x0097</span>, <span class="number">0x0045</span>, <span class="number">0x00E6</span>, <span class="number">0x00F7</span>]</span><br><span class="line"></span><br><span class="line">box = [<span class="number">0</span>] * <span class="number">256</span></span><br><span class="line"></span><br><span class="line">op = [...]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">rc4_intit</span>():</span><br><span class="line">    k = <span class="string">&quot;YunZh1JunAlkaid&quot;</span></span><br><span class="line">    key = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> k:</span><br><span class="line">        key.append(<span class="built_in">ord</span>(i))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">256</span>):</span><br><span class="line">        box[i] = i</span><br><span class="line"></span><br><span class="line">    v6 = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">256</span>):</span><br><span class="line">        v8 = box[i]</span><br><span class="line">        v6 = (v6 + v8 + key[i % <span class="built_in">len</span>(key)]) &amp; <span class="number">0xff</span></span><br><span class="line">        box[i] = box[v6]</span><br><span class="line">        box[v6] = v8</span><br><span class="line"></span><br><span class="line">    v5 = <span class="number">0</span></span><br><span class="line">    v6 = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(arr)):</span><br><span class="line">        v5 = (v5 + <span class="number">1</span>) % <span class="number">256</span></span><br><span class="line">        v7 = box[v5]</span><br><span class="line">        v6 = (v6 + v7) % <span class="number">256</span></span><br><span class="line">        v8 = box[v6]</span><br><span class="line">        box[v5] = v8</span><br><span class="line">        box[v6] = v7</span><br><span class="line">        arr[i] ^= (box[(v7 + v8) % <span class="number">256</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">rc4</span>(<span class="params">st, end</span>):</span><br><span class="line">    v5 = <span class="number">0</span></span><br><span class="line">    v6 = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(st, end):</span><br><span class="line">        v5 = (v5 + <span class="number">1</span>) % <span class="number">256</span></span><br><span class="line">        v7 = box[v5]</span><br><span class="line">        v6 = (v6 + v7) % <span class="number">256</span></span><br><span class="line">        v8 = box[v6]</span><br><span class="line">        box[v5] = v8</span><br><span class="line">        box[v6] = v7</span><br><span class="line">        op[i] ^= (box[(v7 + v8) % <span class="number">256</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    rc4_intit()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(op)-<span class="number">3</span>, <span class="number">3</span>):</span><br><span class="line">        rc4(i, i + <span class="number">3</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="built_in">hex</span>(op[i]), <span class="built_in">hex</span>(op[i + <span class="number">1</span>]), <span class="built_in">hex</span>(op[i + <span class="number">2</span>]))</span><br><span class="line">        <span class="keyword">if</span> op[i + <span class="number">2</span>] == <span class="number">0x13</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;\n判断：&quot;</span>)</span><br><span class="line"></span><br><span class="line">        rc4(i, i + <span class="number">3</span>)</span><br></pre></td></tr></table></div></figure>
+
+<p>看出指令码非常的有规律</p>
+<p><img src="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305030201808.png" alt="image-20230503020112776"></p>
+<p>虽然这个虚拟机只有与非运算，但是众所周知，与非门是一种通用的逻辑门，因为任何布尔运算都可以用与非来实现</p>
+<p>A ^ B &#x3D; !A * B + A * !B &#x3D; !(A<em>A) * B + A * !(B*B) &#x3D; !( !( !(A</em>A) * B ) * !( A * !(B*B) ) ) </p>
+<p>然后动调获取密文</p>
+<p>写脚本</p>
+<figure class="highlight python"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> z3 <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">enc = [<span class="number">0x24</span>, <span class="number">0x0B</span>, <span class="number">0x6D</span>, <span class="number">0x0F</span>, <span class="number">0x03</span>, <span class="number">0x32</span>, <span class="number">0x42</span>, <span class="number">0x1D</span>,</span><br><span class="line">       <span class="number">0x2B</span>, <span class="number">0x43</span>, <span class="number">0x78</span>, <span class="number">0x43</span>, <span class="number">0x73</span>, <span class="number">0x30</span>, <span class="number">0x2B</span>, <span class="number">0x4E</span>,</span><br><span class="line">       <span class="number">0x63</span>, <span class="number">0x48</span>, <span class="number">0x77</span>, <span class="number">0x2E</span>, <span class="number">0x32</span>, <span class="number">0x39</span>, <span class="number">0x1A</span>, <span class="number">0x12</span>,</span><br><span class="line">       <span class="number">0x71</span>, <span class="number">0x7A</span>, <span class="number">0x42</span>, <span class="number">0x17</span>, <span class="number">0x45</span>, <span class="number">0x72</span>, <span class="number">0x56</span>, <span class="number">0x0C</span>,</span><br><span class="line">       <span class="number">0x5C</span>, <span class="number">0x4A</span>, <span class="number">0x62</span>, <span class="number">0x53</span>, <span class="number">0x33</span>]</span><br><span class="line"></span><br><span class="line">s = Solver()</span><br><span class="line">x = [BitVec(<span class="string">&#x27;x[%d]&#x27;</span> % i, <span class="number">8</span>) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">37</span>)]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">37</span>):</span><br><span class="line">    s.add(enc[i] == x[i % <span class="number">37</span>] ^ x[(i + <span class="number">1</span>) % <span class="number">37</span>] ^ x[(i + <span class="number">2</span>) % <span class="number">37</span>] ^ x[(i + <span class="number">3</span>) % <span class="number">37</span>])</span><br><span class="line">s.add(x[<span class="number">36</span>] == <span class="number">0x7e</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> s.check() == sat:</span><br><span class="line">    result = s.model()</span><br><span class="line">    <span class="keyword">for</span> each <span class="keyword">in</span> x:</span><br><span class="line">        <span class="built_in">print</span>(<span class="built_in">chr</span>(result[each].as_long()), end=<span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;no&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></div></figure>
+
+<p>flag{A_Sin91e_InS7rUcti0N_ViRTua1_M4chin3~}</p>
+
+        <h2 id="d3rc4"   >
+          <a href="#d3rc4" class="heading-link"><i class="fas fa-link"></i></a><a href="#d3rc4" class="headerlink" title="d3rc4"></a>d3rc4</h2>
+      <p>64位</p>
+<p><img src="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305051416834.png" alt="image-20230505141636756"></p>
+<p>只是rc4加密，直接动调提取异或的keystream</p>
+<p>然而解密后是假flag</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">fake = [0xDB, 0xB6, 0x2A, 0x04, 0xC7, 0xB9, 0x68, 0xE0, 0xBD, 0x3E, 0x04, 0x6F, 0xD3, 0x38, 0x10, 0x6B, 0x4A, 0xE5,</span><br><span class="line">        0x61, 0xA7, 0x24, 0x0D, 0xFC, 0x73, 0xAA, 0x71, 0xF8, 0x10, 0x0D, 0x7D, 0x55, 0x6E, 0x43]</span><br><span class="line">enc = [0xb8, 0x86, 0x44, 0x63, 0xb5, 0xd8, 0x1c, 0x95,</span><br><span class="line">       0xd1, 0x7e, 0x70, 0x5e, 0xbc, 0x56, 0x63, 0x34,</span><br><span class="line">       0x28, 0x90, 0x15, 0xf8, 0x4d, 0x52, 0x9d, 0x1e,</span><br><span class="line">       0xf5, 0x1f, 0xc8, 0x64, 0x52, 0x1b, 0x64, 0x0f,</span><br><span class="line">       0x24, 0x93, 0x40, 0x5d, 0x84, 0x93, 0x7d, 0x92,</span><br><span class="line">       0x0a]</span><br><span class="line"></span><br><span class="line">for i in range(len(fake)):</span><br><span class="line">    x = fake[i] ^ enc[i]</span><br><span class="line">    print(chr(x), end=&quot;&quot;)</span><br><span class="line"></span><br></pre></td></tr></table></div></figure>
+
+<p>c0ngratul@t1ons_but_i_am_n0t_f1ag</p>
+<p>调试以及查看函数表可知</p>
+<p>在main函数之前有init函数，负责对key以及输出的初始化</p>
+<p><img src="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305051422786.png" alt="image-20230505142246727"></p>
+<p>在main函数之后，还有fini对输入做进一步的校验</p>
+<p><img src="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305051423243.png" alt="image-20230505142357182"></p>
+<p><img src="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305051424048.png" alt="image-20230505142422977"></p>
+<p>大概分析了一下他fork调用的流程</p>
+<p>总的来说，利用管道对key进行修改。打开一个子进程然后修改key</p>
+<p>子进程又打开子进程。</p>
+<p>因为有wait函数，当前进程会等待其子进程结束后再继续运行</p>
+<p>利用gdb进行调试</p>
+<p>首先在fork出下断</p>
+<p><img src="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305051429212.png" alt="image-20230505142947162"></p>
+<p>这里会进行创建子进程，因此如果想要跟踪子进程，就得将gdb的跟踪模式从主进程切换到子进程</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set follow-fork-mode child</span><br></pre></td></tr></table></div></figure>
+
+<p>切换到子进程后在校验处下断</p>
+<p><img src="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305051432694.png" alt="image-20230505143227640"></p>
+<p>对应ida里面的</p>
+<p><img src="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305051433548.png" alt="image-20230505143300500"></p>
+<p><img src="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305051433714.png" alt="image-20230505143338667"></p>
+<p>提取rdx里面的值，写脚本</p>
+<figure class="highlight python"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">flag = [<span class="number">0xF7</span>, <span class="number">0x5F</span>, <span class="number">0xE7</span>, <span class="number">0xB0</span>, <span class="number">0x9A</span>, <span class="number">0xB4</span>, <span class="number">0xE0</span>, <span class="number">0xE7</span>, <span class="number">0x9E</span>, <span class="number">0x05</span>, <span class="number">0xFE</span>, <span class="number">0xD8</span>, <span class="number">0x35</span>, <span class="number">0x5C</span>, <span class="number">0x72</span>, <span class="number">0xE0</span>, <span class="number">0x86</span>, <span class="number">0xDE</span>,</span><br><span class="line">        <span class="number">0x73</span>, <span class="number">0x9F</span>, <span class="number">0x9A</span>, <span class="number">0xF6</span>, <span class="number">0x0D</span>, <span class="number">0xDC</span>, <span class="number">0xC8</span>, <span class="number">0x4F</span>, <span class="number">0xC2</span>, <span class="number">0xA4</span>, <span class="number">0x7A</span>, <span class="number">0xB5</span>, <span class="number">0xE3</span>, <span class="number">0xCD</span>, <span class="number">0x60</span>, <span class="number">0x9D</span>, <span class="number">0x04</span>, <span class="number">0x1F</span>]</span><br><span class="line"></span><br><span class="line">enc = [<span class="number">0xb8</span>, <span class="number">0x86</span>, <span class="number">0x44</span>, <span class="number">0x63</span>, <span class="number">0xb5</span>, <span class="number">0xd8</span>, <span class="number">0x1c</span>, <span class="number">0x95</span>,</span><br><span class="line">       <span class="number">0xd1</span>, <span class="number">0x7e</span>, <span class="number">0x70</span>, <span class="number">0x5e</span>, <span class="number">0xbc</span>, <span class="number">0x56</span>, <span class="number">0x63</span>, <span class="number">0x34</span>,</span><br><span class="line">       <span class="number">0x28</span>, <span class="number">0x90</span>, <span class="number">0x15</span>, <span class="number">0xf8</span>, <span class="number">0x4d</span>, <span class="number">0x52</span>, <span class="number">0x9d</span>, <span class="number">0x1e</span>,</span><br><span class="line">       <span class="number">0xf5</span>, <span class="number">0x1f</span>, <span class="number">0xc8</span>, <span class="number">0x64</span>, <span class="number">0x52</span>, <span class="number">0x1b</span>, <span class="number">0x64</span>, <span class="number">0x0f</span>,</span><br><span class="line">       <span class="number">0x24</span>, <span class="number">0x93</span>, <span class="number">0x40</span>, <span class="number">0x5d</span>, <span class="number">0x84</span>, <span class="number">0x93</span>, <span class="number">0x7d</span>, <span class="number">0x92</span>,</span><br><span class="line">       <span class="number">0x0a</span>]</span><br><span class="line"></span><br><span class="line">ks = [<span class="number">0x35</span>, <span class="number">0x4b</span>, <span class="number">0xa0</span>, <span class="number">0x60</span>, <span class="number">0x08</span>, <span class="number">0x50</span>, <span class="number">0xa5</span>, <span class="number">0xf1</span>,</span><br><span class="line">      <span class="number">0x33</span>, <span class="number">0x97</span>, <span class="number">0xb2</span>, <span class="number">0x13</span>, <span class="number">0xcb</span>, <span class="number">0x4c</span>, <span class="number">0x0d</span>, <span class="number">0xcf</span>,</span><br><span class="line">      <span class="number">0xa3</span>, <span class="number">0x7c</span>, <span class="number">0x57</span>, <span class="number">0x53</span>, <span class="number">0xe2</span>, <span class="number">0xa9</span>, <span class="number">0x65</span>, <span class="number">0x4e</span>,</span><br><span class="line">      <span class="number">0x0e</span>, <span class="number">0xc7</span>, <span class="number">0x7a</span>, <span class="number">0x0f</span>, <span class="number">0xfd</span>, <span class="number">0xb5</span>, <span class="number">0x9e</span>, <span class="number">0xb4</span>,</span><br><span class="line">      <span class="number">0x33</span>, <span class="number">0xf9</span>, <span class="number">0x61</span>, <span class="number">0xd3</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(flag), <span class="number">2</span>):</span><br><span class="line">    flag[i + <span class="number">1</span>] = flag[i] - (flag[i + <span class="number">1</span>] ^ ks[i + <span class="number">1</span>])</span><br><span class="line">    flag[i] = (flag[i] ^ ks[i]) - flag[i + <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(flag)):</span><br><span class="line">    flag[i] ^= enc[i]</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> flag:</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">chr</span>(i &amp; <span class="number">0xff</span>), end=<span class="string">&quot;&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></div></figure>
+
+<p>getting_primes_with_pipes_is_awesome</p>
+
+        <h2 id="d3recover"   >
+          <a href="#d3recover" class="heading-link"><i class="fas fa-link"></i></a><a href="#d3recover" class="headerlink" title="d3recover"></a>d3recover</h2>
+      <p>附件是两个文件ver1无符号而ver2有符号</p>
+<p>利用bindiff恢复符号</p>
+<p>找到可疑的函数</p>
+<p><img src="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305112112068.png" alt="image-20230511211205029"></p>
+<p>看起来很复杂但是很多都是对函数异常时的处理，只要关注其调用的python函数即可</p>
+<p><img src="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305112113969.png" alt="image-20230511211306925"></p>
+<p>简单化简一下逻辑</p>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">32</span>; i++) &#123;</span><br><span class="line">	input[i] ^= <span class="number">0x23</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">29</span>; i++) &#123;</span><br><span class="line">	<span class="type">int</span> x1 = input[i];</span><br><span class="line">	<span class="type">int</span> x2 = input[i+<span class="number">2</span>];</span><br><span class="line">	input[i] = (x1 + x2) ^ <span class="number">0x54</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+
+<p>然后就是猜了，看了别的师傅的wp，可以通过调试来调试出最后做比较的字符</p>
+<p>但是我找不到。</p>
+<p>留意到有一串疑似经过base64加密的字符串</p>
+<p><img src="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305112225327.png" alt="image-20230511222518281"></p>
+<p>长度也对的上，将其base64解码后再解密</p>
+<p><img src="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305112225111.png" alt="image-20230511222556078"></p>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> input[<span class="number">32</span>];</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> flag[] = &#123;</span><br><span class="line">    <span class="number">0xd3</span>,<span class="number">0xc7</span>,<span class="number">0xce</span>,<span class="number">0xca</span>,<span class="number">0x3f</span>,<span class="number">0x84</span>,<span class="number">0xdb</span>,<span class="number">0xb3</span>,<span class="number">0xb6</span>,<span class="number">0xb9</span>,<span class="number">0x80</span>,<span class="number">0xea</span>,<span class="number">0xd0</span>,<span class="number">0xcd</span>,<span class="number">0x72</span>,<span class="number">0xfc</span>,</span><br><span class="line">    <span class="number">0xd8</span>,<span class="number">0x30</span>,<span class="number">0x95</span>,<span class="number">0xdb</span>,<span class="number">0xe2</span>,<span class="number">0xd8</span>,<span class="number">0x92</span>,<span class="number">0x08</span>,<span class="number">0xc1</span>,<span class="number">0xc6</span>,<span class="number">0xc5</span>,<span class="number">0xf4</span>,<span class="number">0x07</span>,<span class="number">0xec</span>,<span class="number">0x02</span>,<span class="number">0x5e</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">29</span>; i++) &#123;</span><br><span class="line">        flag[i] ^= <span class="number">0x54</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">29</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">        flag[i] -= flag[i+<span class="number">2</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">32</span>; i++) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%c&quot;</span>, flag[i]^<span class="number">0x23</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+
+<p>flag{y0U_RE_Ma5t3r_0f_R3vocery!}</p>
+
+        <h2 id="d3syscall"   >
+          <a href="#d3syscall" class="heading-link"><i class="fas fa-link"></i></a><a href="#d3syscall" class="headerlink" title="d3syscall"></a>d3syscall</h2>
+      <p>ida64</p>
+<p><img src="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305060009061.png" alt="image-20230506000957959"></p>
+<p>点开函数，发现全是自己定义的Linux系统调用</p>
+<p><img src="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305060010356.png" alt="image-20230506001045316"></p>
+<p>找到注册的函数下断，然后将生成的my_module文件丢进ida</p>
+<p><img src="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305060021426.png" alt="image-20230506002136378"></p>
+<p>my_module中定义了每个系统调用号对应的函数，发现是个虚拟机</p>
+<p><img src="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305060022617.png" alt="image-20230506002253557"></p>
+<p>最后写脚本</p>
+<figure class="highlight python"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> z3</span><br><span class="line"><span class="keyword">from</span> z3 <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">flag = [<span class="number">0xB0800699CB89CC89</span>, <span class="number">0x4764FD523FA00B19</span>,</span><br><span class="line">        <span class="number">0x396A7E6DF099D700</span>, <span class="number">0xB115D56BCDEAF50A</span>,</span><br><span class="line">        <span class="number">0x2521513C985791F4</span>, <span class="number">0xB03C06AF93AD0BE</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">6</span>, <span class="number">2</span>):</span><br><span class="line">    s = Solver()</span><br><span class="line">    reg = [BitVec(<span class="string">&#x27;reg[%d]&#x27;</span> % i, <span class="number">64</span>) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>)]</span><br><span class="line"></span><br><span class="line">    ans1 = reg[<span class="number">1</span>] + (((reg[<span class="number">0</span>] &lt;&lt; <span class="number">3</span>) + <span class="number">0x51e7647e</span>) ^ ((reg[<span class="number">0</span>] * <span class="number">3</span>) + <span class="number">0x0E0B4140A</span>) ^ (reg[<span class="number">0</span>] + <span class="number">0x0E6978F27</span>))</span><br><span class="line">    ans2 = reg[<span class="number">0</span>] + (((ans1 &lt;&lt; <span class="number">6</span>) + <span class="number">0x53A35337</span>) ^ ((ans1 * <span class="number">5</span>) + <span class="number">0x9840294D</span>) ^ (ans1 - <span class="number">0x5EAE4751</span>))</span><br><span class="line"></span><br><span class="line">    s.add(flag[i] == ans1 &amp; <span class="number">0xffffffffffffffff</span>)</span><br><span class="line">    s.add(flag[i + <span class="number">1</span>] == ans2 &amp; <span class="number">0xffffffffffffffff</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> s.check() == z3.sat:</span><br><span class="line">        result = s.model()</span><br><span class="line">        <span class="keyword">for</span> each <span class="keyword">in</span> reg:</span><br><span class="line">            <span class="built_in">print</span>(<span class="built_in">hex</span>(result[each].as_long()), end=<span class="string">&quot;, &quot;</span>)</span><br></pre></td></tr></table></div></figure>
+
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">long</span> <span class="type">long</span> flag[] = &#123;</span><br><span class="line">        <span class="number">0x65637b6674633364</span>, <span class="number">0x322d343939623966</span>, <span class="number">0x343438342d373435</span>, <span class="number">0x30612d643063612d</span>, <span class="number">0x3630383537623739</span>, <span class="number">0x7d3061</span>&#125;;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">6</span>; i++) &#123;</span><br><span class="line">        <span class="type">unsigned</span> <span class="type">long</span> <span class="type">long</span> x = flag[i];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt; <span class="number">8</span>; j++) &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%c&quot;</span>, x&amp;<span class="number">0xff</span>);</span><br><span class="line">            x &gt;&gt;= <span class="number">8</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+
+<p>d3ctf{cef9b994-2547-4844-ac0d-a097b75806a0}</p>
+
+        <h2 id="d3hell"   >
+          <a href="#d3hell" class="heading-link"><i class="fas fa-link"></i></a><a href="#d3hell" class="headerlink" title="d3hell"></a>d3hell</h2>
+      <p>To be continue……</p>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><nav class="post-paginator paginator"><div class="paginator-next"><a class="paginator-next__link" href="/2023/04/27/De1CTF2019-cplusplus/"><span class="paginator-prev__text">De1CTF2019_cplusplus</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#d3CTF2023"><span class="toc-number">1.</span> <span class="toc-text">
+          d3CTF2023</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#d3sky"><span class="toc-number">1.1.</span> <span class="toc-text">
+          d3sky</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#d3rc4"><span class="toc-number">1.2.</span> <span class="toc-text">
+          d3rc4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#d3recover"><span class="toc-number">1.3.</span> <span class="toc-text">
+          d3recover</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#d3syscall"><span class="toc-number">1.4.</span> <span class="toc-text">
+          d3syscall</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#d3hell"><span class="toc-number">1.5.</span> <span class="toc-text">
+          d3hell</span></a></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/131.jpg" alt="avatar"></div><p class="sidebar-ov-author__text">少壮不努力,老大亚托莉</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="mailto:745921536@qq.com" target="_blank" rel="noopener" data-popover="social.745921536@qq.com" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fas fa-envelope"></i></span></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">56</div><div class="sidebar-ov-state-item__name">归档</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">5</div><div class="sidebar-ov-state-item__name">分类</div></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2023</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>没有眼的鱼</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><div class="search-mask"></div><div class="search-popup"><span class="search-close"></span><div class="search-input"><input placeholder="搜索文章（支持多关键词，请用空格分隔）"></div><div class="search-results"></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script>function initSearch() {
+  var isXML = true;
+  var search_path = 'search.xml';
+
+  if (!search_path) {
+    search_path = 'search.xml';
+  } else if (/json$/i.test(search_path)) {
+    isXML = false;
+  }
+
+  var path = '/' + search_path;
+  $.ajax({
+    url: path,
+    dataType: isXML ? 'xml' : 'json',
+    async: true,
+    success: function (res) {
+      var datas = isXML ? $('entry', res).map(function () {
+        // 将 XML 转为 JSON
+        return {
+          title: $('title', this).text(),
+          content: $('content', this).text(),
+          url: $('url', this).text()
+        };
+      }).get() : res;
+      var $input = $('.search-input input');
+      var $result = $('.search-results');
+      // 搜索对象（标题、内容）的权重，影响显示顺序
+      var WEIGHT = { title: 100, content: 1 };
+      var searchPost = function () {
+        var searchText = $input.val().toLowerCase().trim();
+        // 根据空白字符分隔关键字
+        var keywords = searchText.split(/[\s]+/);
+        // 搜索结果
+        var matchPosts = [];
+
+        // 有多个关键字时，将原文字整个保存下来
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        // 防止未输入字符时搜索
+        if (searchText.length > 0) {
+          datas.forEach(function (data) {
+            var isMatch  = false;
+            // 没有标题的文章使用预设的 i18n 变量代替
+            var title = (data.title && data.title.trim()) || '[ 文章无标题 ]';
+            var titleLower = title && title.toLowerCase();
+            // 删除 HTML 标签 和 所有空白字符
+            var content = data.content && data.content.replace(/<[^>]+>/g, '');
+            var contentLower = content && content.toLowerCase();
+            // 删除重复的 /
+            var postURL = data.url && decodeURI(data.url).replace(/\/{2,}/g, '/');
+            // 标题中匹配到的关键词
+            var titleHitSlice = [];
+            // 内容中匹配到的关键词
+            var contentHitSlice = [];
+
+            keywords.forEach(function (keyword) {
+              /**
+              * 获取匹配的关键词的索引
+              * @param {String} keyword 要匹配的关键字
+              * @param {String} text 原文字
+              * @param {Boolean} caseSensitive 是否区分大小写
+              * @param {Number} weight 匹配对象的权重。权重大的优先显示
+              * @return {Array}
+              */
+              function getIndexByword (word, text, caseSensitive, weight) {
+                if (!word || !text) {
+                  return [];
+                };
+
+                var startIndex = 0; // 每次匹配的开始索引
+                var index = -1;     // 匹配到的索引值
+                var result = [];    // 匹配结果
+
+                if (!caseSensitive) {
+                  word = word.toLowerCase();
+                  text = text.toLowerCase();
+                }
+
+                while((index = text.indexOf(word, startIndex)) !== -1) {
+                  var hasMatch = false;
+                  // 索引位置相同的关键词，保留长度较长的
+                  titleHitSlice.forEach(function (hit) {
+                    if (hit.index === index && hit.word.length < word.length) {
+                      hit.word = word;
+                      hasMatch = true;
+                    }
+                  });
+                  startIndex = index + word.length;
+                  !hasMatch && result.push({ index: index, word: word, weight: weight });
+                }
+                return result;
+              }
+              titleHitSlice = titleHitSlice.concat(getIndexByword(keyword, titleLower, false, WEIGHT.title));
+              contentHitSlice = contentHitSlice.concat(getIndexByword(keyword, contentLower, false, WEIGHT.content));
+            });
+
+            var hitTitle = titleHitSlice.length;
+            var hitContent = contentHitSlice.length;
+
+            if (hitTitle > 0 || hitContent > 0) {
+              isMatch = true;
+            }
+            if (isMatch) {
+              ;[titleHitSlice, contentHitSlice].forEach(function (hit) {
+                // 按照匹配文字的索引的递增顺序排序
+                hit.sort(function (left, right) {
+                  return left.index - right.index;
+                });
+              });
+              /**
+              * 给文本中匹配到的关键词添加标记，从而进行高亮显示
+              * @param {String} text 原文本
+              * @param {Array} hitSlice 匹配项的索引信息
+              * @param {Number} start 开始索引
+              * @param {Number} end 结束索引
+              * @return {String}
+              */
+              function highlightKeyword (text, hitSlice, start, end) {
+                if (!text || !hitSlice || !hitSlice.length) {
+                  return;
+                }
+
+                var result = '';
+                var startIndex = start;
+                var endIndex = end;
+                hitSlice.forEach(function (hit) {
+                  if (hit.index < startIndex) {
+                    return;
+                  }
+
+                  var hitWordEnd = hit.index + hit.word.length;
+                  result += text.slice(startIndex, hit.index);
+                  result += '<b>' + text.slice(hit.index, hitWordEnd) + '</b>';
+                  startIndex = hitWordEnd;
+                });
+                result += text.slice(startIndex, endIndex);
+                return result;
+              }
+
+              var postData = {};
+              // 文章总的搜索权重
+              var postWeight = titleHitSlice.length * WEIGHT.title + contentHitSlice.length * WEIGHT.content;
+              // 标记匹配关键词后的标题
+              var postTitle = highlightKeyword(title, titleHitSlice, 0, title.length) || title;
+              // 标记匹配关键词后的内容
+              var postContent;
+              // 显示内容的长度
+              var SHOW_WORD_LENGTH = 200;
+              // 命中关键词前的字符显示长度
+              var SHOW_WORD_FRONT_LENGTH = 20;
+              var SHOW_WORD_END_LENGTH = SHOW_WORD_LENGTH - SHOW_WORD_FRONT_LENGTH;
+
+              // 截取匹配的第一个字符，前后共 200 个字符来显示
+              if (contentHitSlice.length > 0) {
+                var firstIndex = contentHitSlice[0].index;
+                var start = firstIndex > SHOW_WORD_FRONT_LENGTH ? firstIndex - SHOW_WORD_FRONT_LENGTH : 0;
+                var end = firstIndex + SHOW_WORD_END_LENGTH;
+                postContent = highlightKeyword(content, contentHitSlice, start, end);
+              } else { // 未匹配到内容，直接截取前 200 个字符来显示
+                postContent = content.slice(0, SHOW_WORD_LENGTH);
+              }
+              postData.title = postTitle;
+              postData.content = postContent;
+              postData.url = postURL;
+              postData.weight = postWeight;
+              matchPosts.push(postData);
+            }
+          });
+        }
+
+        var resultInnerHtml = '';
+        if (matchPosts.length) {
+          // 按权重递增的顺序排序，使权重大的优先显示
+          matchPosts.sort(function (left, right) {
+            return right.weight - left.weight;
+          });
+          resultInnerHtml += '<ul>';
+          matchPosts.forEach(function (post) {
+            resultInnerHtml += '<li><a class="search-results-title" href="' + post.url + '">';
+            resultInnerHtml += post.title;
+            resultInnerHtml += '</a><div class="search-results-content">';
+            resultInnerHtml += post.content;
+            resultInnerHtml += '</div></li>';
+          });
+          resultInnerHtml += '</ul>';
+        } else {
+          resultInnerHtml += '<div class="search-results-none"><i class="far fa-meh"></i></div>';
+        }
+        $result.html(resultInnerHtml);
+      };
+      $input.on('input', searchPost);
+      $input.on('keyup', function (e) {
+        if (e.keyCode === Stun.utils.codeToKeyCode('Enter')) {
+          searchPost();
+        }
+      });
+    }
+  });
+}
+
+function closeSearch () {
+  $('body').css({ overflow: 'auto' });
+  $('.search-popup').css({ display: 'none' });
+  $('.search-mask').css({ display: 'none' });
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+  Stun.utils.pjaxReloadLocalSearch = function () {
+    $('.header-nav-search').on('click', function (e) {
+      e.stopPropagation();
+      $('body').css('overflow', 'hidden');
+      $('.search-popup')
+        .velocity('stop')
+        .velocity('transition.expandIn', {
+          duration: 300,
+          complete: function () {
+            $('.search-popup input').focus();
+          }
+        });
+      $('.search-mask')
+        .velocity('stop')
+        .velocity('transition.fadeIn', {
+          duration: 300
+        });
+
+      initSearch();
+    });
+    $('.search-mask, .search-close').on('click', function () {
+      closeSearch();
+    });
+    $(document).on('keydown', function (e) {
+      // Escape <=> 27
+      if (e.keyCode === Stun.utils.codeToKeyCode('Escape')) {
+        closeSearch();
+      }
+    });
+  };
+
+  Stun.utils.pjaxReloadLocalSearch();
+}, false);
+
+function safeOpenUrl(url) {
+  var newTab = window.open();
+  newTab.opener = null;
+  newTab.location = url;
+}
+
+function extSearch(engine) {
+  var engines = {
+    google: 'https://www.google.com/search?q=',
+    bing: 'https://cn.bing.com/search?q=',
+    baidu: 'https://www.baidu.com/s?ie=UTF-8&wd=',
+  };
+  var host = window.location.host;
+  var query = $('.search-input input').val().toLowerCase().trim();
+  var uri = engines[engine] + query + ' site:' + host;
+
+  if (query) {
+    safeOpenUrl(uri);
+  } else {
+    Stun.utils.popAlert('warning', '请输入字符');
+  }
+}
+
+var assistSearchList = window.CONFIG.assistSearch;
+
+if (Array.isArray(assistSearchList)) {
+  assistSearchList.forEach(function (name) {
+    document.querySelector('.search-btns-item--' + name).addEventListener('click', function () {
+      extSearch(name);
+    }, false);
+  });
+}</script><script src="/js/utils.js?v=2.6.2"></script><script src="/js/stun-boot.js?v=2.6.2"></script><script src="/js/scroll.js?v=2.6.2"></script><script src="/js/header.js?v=2.6.2"></script><script src="/js/sidebar.js?v=2.6.2"></script><script type="application/json" src="/search.xml"></script></body></html>
