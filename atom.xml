@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>鱼先生的格纳库</title>
-  
+  <icon>https://username.github.io/icon.png</icon>
   <subtitle>没有眼的鱼</subtitle>
   <link href="https://username.github.io/atom.xml" rel="self"/>
   
