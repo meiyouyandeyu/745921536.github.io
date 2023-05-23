@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>UnCrackable-Level1.md</title>
+      <link href="/2023/05/23/UnCrackable-Level1-md/"/>
+      <url>/2023/05/23/UnCrackable-Level1-md/</url>
+      
+        <content type="html"><![CDATA[        <h1 id="UnCrackable-Level1"   >          <a href="#UnCrackable-Level1" class="heading-link"><i class="fas fa-link"></i></a><a href="#UnCrackable-Level1" class="headerlink" title="UnCrackable-Level1"></a>UnCrackable-Level1</h1>      <p>安卓逆向</p><p><img src="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305232247241.png" alt="image-20230523224709120"></p><p>jadx打开</p><p><img src="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305232248648.png" alt="image-20230523224815607"></p><p>这里进行了校验</p><p>比较直接的方法是利用apktool进行修改后重打包</p><p>将这段删掉</p><p><img src="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305232250784.png" alt="image-20230523225055736"></p><figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar apktool.jar d UnCrackable-Level1.apk</span><br></pre></td></tr></table></div></figure><figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar apktool.jar b UnCrackable-Level1</span><br></pre></td></tr></table></div></figure><p>然后再进行签名</p><p>首先生成自己的密钥</p><figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool -genkey -alias demo.keystore -keyalg RSA -validity 40000 -keystore demo.keystore</span><br></pre></td></tr></table></div></figure><p>签名</p><figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jarsigner -verbose -keystore demo.keystore UnCrackable-Level1.apk demo.keystore</span><br></pre></td></tr></table></div></figure><p>再安装，成功进入</p><p><img src="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305232252932.png" alt="image-20230523225236883"></p><p>找到校验函数</p><p><img src="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305232309165.png" alt="image-20230523230937139"></p><p>发现是AES+Base64</p><p><img src="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305232310191.png" alt="image-20230523230957620"></p><p><img src="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305232310614.png" alt="image-20230523231010576"></p><p><img src="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202305232310536.png" alt="image-20230523231049489"></p><p>I want to believe</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> rewp </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>SWPU2019_EasiestRe</title>
       <link href="/2023/05/19/SWPU2019-EasiestRe/"/>
       <url>/2023/05/19/SWPU2019-EasiestRe/</url>
