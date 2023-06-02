@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>UnCrackable-Level2</title>
+      <link href="/2023/06/02/UnCrackable-Level2/"/>
+      <url>/2023/06/02/UnCrackable-Level2/</url>
+      
+        <content type="html"><![CDATA[        <h1 id="UnCrackable-Level2"   >          <a href="#UnCrackable-Level2" class="heading-link"><i class="fas fa-link"></i></a><a href="#UnCrackable-Level2" class="headerlink" title="UnCrackable-Level2"></a>UnCrackable-Level2</h1>      <p>jadx打开</p><p><img src="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202306022255784.png" alt="image-20230602225526738"></p><p>同样是检测root</p><p>init()函数是native，ida打开对应so</p><p>最终导向这个函数</p><p><img src="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202306022256114.png" alt="image-20230602225614075"></p><p>创建子进程，然后附加到父进程，因此不能运行后注入</p><p>利用spawn创建进程后hook</p><figure class="highlight js"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Script loaded successfully &quot;</span>);</span><br><span class="line"><span class="title class_">Java</span>.<span class="title function_">perform</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> b=<span class="title class_">Java</span>.<span class="title function_">use</span>(<span class="string">&quot;sg.vantagepoint.a.b&quot;</span>);</span><br><span class="line">    b.<span class="property">a</span>.<span class="title function_">overload</span>().<span class="property">implementation</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    b.<span class="property">b</span>.<span class="title function_">overload</span>().<span class="property">implementation</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    b.<span class="property">c</span>.<span class="title function_">overload</span>().<span class="property">implementation</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></div></figure><figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">frida -U -f &quot;owasp.mstg.uncrackable2&quot; -l .\script.js --no-pause</span><br></pre></td></tr></table></div></figure><p><img src="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202306022311108.png" alt="image-20230602231111083"></p><p>然后查看校验函数</p><p><img src="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202306022311528.png" alt="image-20230602231147501"></p><p>仍然是写在native里面</p><p><img src="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202306022312672.png" alt="image-20230602231203647"></p><p>ida打开</p><p><img src="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202306022312249.png" alt="image-20230602231219213"></p><p>找到“Thanks for all the fish”</p><p><img src="https://raw.githubusercontent.com/meiyouyandeyu/MyImagepost/main/img/202306022317629.png" alt="image-20230602231721602"></p><p>Thanks for all the fish</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> rewp </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>UnCrackable-Level1</title>
       <link href="/2023/05/23/UnCrackable-Level1/"/>
       <url>/2023/05/23/UnCrackable-Level1/</url>
