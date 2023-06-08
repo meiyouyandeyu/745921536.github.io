@@ -6,7 +6,7 @@
   <link href="https://username.github.io/atom.xml" rel="self"/>
   
   <link href="https://username.github.io/"/>
-  <updated>2023-06-02T15:18:24.489Z</updated>
+  <updated>2023-06-08T12:39:25.710Z</updated>
   <id>https://username.github.io/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>面向对象高级编程上课笔记（EffectiveJava）</title>
+    <link href="https://username.github.io/2023/06/08/EffectiveJava%E4%B8%8A%E8%AF%BE%E7%AC%94%E8%AE%B0/"/>
+    <id>https://username.github.io/2023/06/08/EffectiveJava%E4%B8%8A%E8%AF%BE%E7%AC%94%E8%AE%B0/</id>
+    <published>2023-06-08T12:39:23.000Z</published>
+    <updated>2023-06-08T12:39:25.710Z</updated>
+    
+    
+    <summary type="html">面向对象高级编程上课笔记（EffectiveJava）</summary>
+    
+    
+    
+    <category term="笔记" scheme="https://username.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>UnCrackable-Level2</title>
@@ -331,23 +348,6 @@
     
     
     <summary type="html">CISCN2018_2ex</summary>
-    
-    
-    
-    <category term="rewp" scheme="https://username.github.io/categories/rewp/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>WMCTF2020_easy_re</title>
-    <link href="https://username.github.io/2023/01/10/WMCTF2020-easy-re/"/>
-    <id>https://username.github.io/2023/01/10/WMCTF2020-easy-re/</id>
-    <published>2023-01-09T17:36:53.000Z</published>
-    <updated>2023-01-13T14:19:43.831Z</updated>
-    
-    
-    <summary type="html">WMCTF2020_easy_re</summary>
     
     
     
