@@ -6,7 +6,7 @@
   <link href="https://username.github.io/atom.xml" rel="self"/>
   
   <link href="https://username.github.io/"/>
-  <updated>2023-07-12T18:52:40.341Z</updated>
+  <updated>2023-07-27T14:31:10.332Z</updated>
   <id>https://username.github.io/</id>
   
   <author>
@@ -17,11 +17,28 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>HWS Summer 2023 Rewp</title>
+    <link href="https://username.github.io/2023/07/27/HWS2023rewp/"/>
+    <id>https://username.github.io/2023/07/27/HWS2023rewp/</id>
+    <published>2023-07-27T14:31:07.000Z</published>
+    <updated>2023-07-27T14:31:10.332Z</updated>
+    
+    
+    <summary type="html">HWS Summer 2023 Rewp</summary>
+    
+    
+    
+    <category term="rewp" scheme="https://username.github.io/categories/rewp/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>vnctf2023 Rewp</title>
     <link href="https://username.github.io/2023/07/13/vnctf2023wp/"/>
     <id>https://username.github.io/2023/07/13/vnctf2023wp/</id>
     <published>2023-07-12T18:51:43.000Z</published>
-    <updated>2023-07-12T18:52:40.341Z</updated>
+    <updated>2023-07-17T12:13:19.577Z</updated>
     
     
     <summary type="html">vnctf2023 Rewp</summary>
@@ -335,23 +352,6 @@
     
     
     <category term="rewp" scheme="https://username.github.io/categories/rewp/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>TLS反调试</title>
-    <link href="https://username.github.io/2023/03/06/TLS%E5%8F%8D%E8%B0%83%E8%AF%95/"/>
-    <id>https://username.github.io/2023/03/06/TLS%E5%8F%8D%E8%B0%83%E8%AF%95/</id>
-    <published>2023-03-06T13:05:57.000Z</published>
-    <updated>2023-03-06T13:07:02.332Z</updated>
-    
-    
-    <summary type="html">TLS反调试</summary>
-    
-    
-    
-    <category term="CTF" scheme="https://username.github.io/categories/CTF/"/>
     
     
   </entry>
