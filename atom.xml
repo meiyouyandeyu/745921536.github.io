@@ -6,7 +6,7 @@
   <link href="https://username.github.io/atom.xml" rel="self"/>
   
   <link href="https://username.github.io/"/>
-  <updated>2023-07-27T14:31:10.332Z</updated>
+  <updated>2023-08-28T14:08:51.035Z</updated>
   <id>https://username.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://username.github.io/2023/08/28/[nepnep2023]%E4%B9%9D%E9%BE%99%E6%8B%89%E6%A3%BA/"/>
+    <id>https://username.github.io/2023/08/28/[nepnep2023]%E4%B9%9D%E9%BE%99%E6%8B%89%E6%A3%BA/</id>
+    <published>2023-08-28T14:09:04.695Z</published>
+    <updated>2023-08-28T14:08:51.035Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>HWS Summer 2023 Rewp</title>
@@ -331,23 +352,6 @@
     
     
     <summary type="html">UNCTF2022wp</summary>
-    
-    
-    
-    <category term="rewp" scheme="https://username.github.io/categories/rewp/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>CatCTFwp</title>
-    <link href="https://username.github.io/2023/03/06/CatCTFwp/"/>
-    <id>https://username.github.io/2023/03/06/CatCTFwp/</id>
-    <published>2023-03-06T13:12:31.000Z</published>
-    <updated>2023-04-01T13:30:39.399Z</updated>
-    
-    
-    <summary type="html">CatCTFwp</summary>
     
     
     
