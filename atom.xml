@@ -6,7 +6,7 @@
   <link href="https://username.github.io/atom.xml" rel="self"/>
   
   <link href="https://username.github.io/"/>
-  <updated>2023-08-28T14:10:42.863Z</updated>
+  <updated>2023-09-23T14:58:28.842Z</updated>
   <id>https://username.github.io/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>NPUCTF2020 EzObfus-Chapter2</title>
+    <link href="https://username.github.io/2023/09/23/NPUCTF2020EzObfus-Chapter2/"/>
+    <id>https://username.github.io/2023/09/23/NPUCTF2020EzObfus-Chapter2/</id>
+    <published>2023-09-23T14:56:43.000Z</published>
+    <updated>2023-09-23T14:58:28.842Z</updated>
+    
+    
+    <summary type="html">NPUCTF2020 EzObfus-Chapter2</summary>
+    
+    
+    
+    <category term="rewp" scheme="https://username.github.io/categories/rewp/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Nepnep2023 九龙拉棺wp</title>
@@ -331,23 +348,6 @@
     
     
     <summary type="html">hgame2023</summary>
-    
-    
-    
-    <category term="rewp" scheme="https://username.github.io/categories/rewp/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>UNCTF2022wp</title>
-    <link href="https://username.github.io/2023/03/06/UNCTF2022wp/"/>
-    <id>https://username.github.io/2023/03/06/UNCTF2022wp/</id>
-    <published>2023-03-06T13:15:10.000Z</published>
-    <updated>2023-04-01T13:30:35.443Z</updated>
-    
-    
-    <summary type="html">UNCTF2022wp</summary>
     
     
     
